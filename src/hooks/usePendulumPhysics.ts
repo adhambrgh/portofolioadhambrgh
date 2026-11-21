@@ -15,6 +15,7 @@ export interface PendulumPhysicsReturn {
   angularVelocity: number;
   isAnimating: boolean;
   setTargetAngle: (angle: number, immediate?: boolean) => void;
+  setAngleDirectly: (angle: number) => void;
   impulse: (velocity: number) => void;
   stop: () => void;
   setDragging: (dragging: boolean) => void;
@@ -156,12 +157,24 @@ export function usePendulumPhysics(
     setTargetAngle(0, true);
   }, [setTargetAngle]);
 
+  const setAngleDirectly = useCallback((newAngle: number) => {
+    const clamped = Math.max(
+      -cfg.maxAngle * (1 + cfg.elasticLimit),
+      Math.min(cfg.maxAngle * (1 + cfg.elasticLimit), newAngle)
+    );
+    setAngle(clamped);
+    setAngularVelocity(0);
+  }, [cfg]);
+
   const setDragging = useCallback((dragging: boolean) => {
     isDraggingRef.current = dragging;
     if (dragging && !isAnimating) {
       setIsAnimating(true);
       lastTimeRef.current = performance.now();
       animationFrameRef.current = requestAnimationFrame(step);
+    } else if (!dragging) {
+      // On release, target angle resets to 0, physics takes over
+      targetAngleRef.current = 0;
     }
   }, [isAnimating, step]);
 
@@ -170,6 +183,7 @@ export function usePendulumPhysics(
     angularVelocity,
     isAnimating,
     setTargetAngle,
+    setAngleDirectly,
     impulse,
     stop,
     setDragging,

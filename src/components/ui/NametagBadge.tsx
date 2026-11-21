@@ -76,7 +76,7 @@ export function NametagBadge({
     const clientX = getClientX(e);
     const deltaX = clientX - startXRef.current;
     const targetAngle = startAngleRef.current + deltaX * 0.0035;
-    physics.setTargetAngle(targetAngle);
+    physics.setAngleDirectly(targetAngle);
   }, [physics, getClientX]);
 
   const handlePointerUp = useCallback(() => {
