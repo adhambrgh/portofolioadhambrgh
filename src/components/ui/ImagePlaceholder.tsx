@@ -32,36 +32,225 @@ export function ImagePlaceholder({
           className
         )}
         {...props}
+        aria-hidden="true"
       >
-        {/* Tali lanyard: 2 garis tipis vertikal accent */}
-        <div className="w-0.5 h-16 bg-accent/40" aria-hidden="true" />
-        <div className="w-0.5 h-16 bg-accent/20 ml-1" aria-hidden="true" />
-        
-        {/* Kartu nametag */}
-        <div className="relative w-full h-full bg-card border border-border shadow-sm flex flex-col items-center justify-center p-6">
-          {/* Clip holder atas kartu */}
-          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-2 bg-accent rounded-b-lg" aria-hidden="true" />
-          
-          {/* Nama - Instrument Serif */}
-          <p className="font-serif text-xl font-medium text-foreground text-center mb-1">
-            {name || "Adham Baarigh"}
-          </p>
-          
-          {/* Role - DM Sans */}
-          <p className="font-sans text-sm text-secondary text-center mb-4">
-            {role || "Software Engineer"}
-          </p>
-          
-          {/* QR code dekoratif */}
-          <div className="w-20 h-20 bg-muted/30 flex items-center justify-center" aria-hidden="true">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-muted" aria-hidden="true">
-              <rect x="5" y="5" width="90" height="90" fill="none" stroke="currentColor" strokeWidth="2"/>
-              {[10,25,40,55,70,85].flatMap(x => [10,25,40,55,70,85].map(y => 
-                <rect key={`${x}-${y}`} x={x} y={y} width="8" height="8" fill="currentColor" opacity="0.3"/>
-              ))}
-            </svg>
-          </div>
-        </div>
+        <svg
+          viewBox="0 0 300 400"
+          className="w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <defs>
+            {/* Gradient for lanyard */}
+            <linearGradient id="lanyardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#7886A8" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#7886A8" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#7886A8" stopOpacity="0.3" />
+            </linearGradient>
+            {/* Badge card gradient */}
+            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#FDFDFB" />
+            </linearGradient>
+            {/* Shadow filter */}
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#20211F" floodOpacity="0.08" />
+            </filter>
+            {/* Inner shadow for holder */}
+            <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feOffset dx="0" dy="2" />
+              <feGaussianBlur stdDeviation="3" result="offset-blur" />
+              <feComposite in="SourceGraphic" in2="offset-blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* LANYARD - V shape */}
+          <g filter="url(#softShadow)">
+            {/* Left strap */}
+            <path
+              d="M150 0 Q120 60 90 140 Q70 180 95 220"
+              stroke="url(#lanyardGrad)"
+              strokeWidth="14"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* Right strap */}
+            <path
+              d="M150 0 Q180 60 210 140 Q230 180 205 220"
+              stroke="url(#lanyardGrad)"
+              strokeWidth="14"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* Lanyard clip/hook at top center */}
+            <g transform="translate(150, 10)">
+              <ellipse cx="0" cy="0" rx="12" ry="6" fill="#7886A8" opacity="0.9" />
+              <ellipse cx="0" cy="0" rx="7" ry="3" fill="#F7F6F2" />
+            </g>
+            {/* Breakaway clasp at chest level */}
+            <g transform="translate(150, 120)">
+              <rect x="-16" y="-6" width="32" height="12" rx="3" fill="#7886A8" opacity="0.7" />
+              <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#F7F6F2" opacity="0.5" />
+            </g>
+          </g>
+
+          {/* BADGE HOLDER - transparent with top hole */}
+          <g transform="translate(150, 220)">
+            {/* Holder background - semi-transparent */}
+            <rect
+              x="-70" y="-10"
+              width="140" height="160"
+              rx="8"
+              fill="#FFFFFF"
+              fillOpacity="0.15"
+              stroke="#E5E3DC"
+              strokeWidth="1.5"
+              filter="url(#innerShadow)"
+            />
+            {/* Top hole for clip */}
+            <ellipse
+              cx="0" cy="-16"
+              rx="14" ry="6"
+              fill="#F7F6F2"
+              stroke="#E5E3DC"
+              strokeWidth="1"
+            />
+            {/* Inner hole cutout */}
+            <ellipse cx="0" cy="-16" rx="8" ry="3" fill="none" />
+          </g>
+
+          {/* BADGE CARD inside holder */}
+          <g transform="translate(150, 220)" filter="url(#softShadow)">
+            {/* Card base */}
+            <rect
+              x="-62" y="-4"
+              width="124" height="148"
+              rx="6"
+              fill="url(#cardGrad)"
+              stroke="#E5E3DC"
+              strokeWidth="1"
+            />
+            {/* Top accent line */}
+            <rect
+              x="-62" y="-4"
+              width="124" height="3"
+              rx="6"
+              fill="#7886A8"
+            />
+            {/* Divider line under name */}
+            <line
+              x1="-40" y1="42"
+              x2="40" y2="42"
+              stroke="#E5E3DC"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+            />
+            
+            {/* NAME - Adham Baarigh */}
+            <text
+              x="0" y="22"
+              textAnchor="middle"
+              fontFamily="Georgia, serif"
+              fontSize="16"
+              fontWeight="500"
+              fill="#20211F"
+              letterSpacing="0.5"
+            >
+              Adham Baarigh
+            </text>
+            
+            {/* ROLE - Software Engineer */}
+            <text
+              x="0" y="56"
+              textAnchor="middle"
+              fontFamily="DM Sans, system-ui, sans-serif"
+              fontSize="10"
+              fontWeight="500"
+              fill="#777873"
+              letterSpacing="0.8"
+              style={{ textTransform: 'uppercase' }}
+            >
+              SOFTWARE ENGINEER
+            </text>
+
+            {/* SUB ROLE - Full Stack Web / Flutter */}
+            <text
+              x="0" y="72"
+              textAnchor="middle"
+              fontFamily="DM Sans, system-ui, sans-serif"
+              fontSize="8.5"
+              fontWeight="400"
+              fill="#9E9D96"
+              letterSpacing="0.5"
+            >
+              FULL STACK WEB  /  FLUTTER
+            </text>
+
+            {/* DECORATIVE QR CODE - bottom */}
+            <g transform="translate(0, 92)">
+              {/* QR background */}
+              <rect
+                x="-22" y="0"
+                width="44" height="44"
+                rx="4"
+                fill="#F7F6F2"
+                stroke="#E5E3DC"
+                strokeWidth="0.5"
+              />
+              {/* QR pattern - decorative modules */}
+              <g fill="#777873" opacity="0.4">
+                {/* Finder patterns (3 corners) */}
+                <rect x="-20" y="2" width="10" height="10" />
+                <rect x="-20" y="2" width="4" height="4" fill="#F7F6F2" />
+                <rect x="10" y="2" width="10" height="10" />
+                <rect x="10" y="2" width="4" height="4" fill="#F7F6F2" />
+                <rect x="-20" y="32" width="10" height="10" />
+                <rect x="-20" y="32" width="4" height="4" fill="#F7F6F2" />
+                
+                {/* Data modules - random pattern */}
+                <rect x="-10" y="2" width="3" height="3" />
+                <rect x="-5" y="2" width="3" height="3" />
+                <rect x="0" y="2" width="3" height="3" />
+                <rect x="7" y="2" width="3" height="3" />
+                
+                <rect x="-20" y="12" width="3" height="3" />
+                <rect x="-12" y="12" width="3" height="3" />
+                <rect x="-4" y="12" width="3" height="3" />
+                <rect x="4" y="12" width="3" height="3" />
+                <rect x="10" y="12" width="3" height="3" />
+                <rect x="16" y="12" width="3" height="3" />
+                
+                <rect x="-16" y="16" width="3" height="3" />
+                <rect x="-8" y="16" width="3" height="3" />
+                <rect x="0" y="16" width="3" height="3" />
+                <rect x="8" y="16" width="3" height="3" />
+                
+                <rect x="-14" y="20" width="3" height="3" />
+                <rect x="-2" y="20" width="3" height="3" />
+                <rect x="6" y="20" width="3" height="3" />
+                <rect x="14" y="20" width="3" height="3" />
+                
+                <rect x="-18" y="24" width="3" height="3" />
+                <rect x="-6" y="24" width="3" height="3" />
+                <rect x="2" y="24" width="3" height="3" />
+                <rect x="12" y="24" width="3" height="3" />
+              </g>
+              {/* QR label */}
+              <text
+                x="0" y="50"
+                textAnchor="middle"
+                fontFamily="DM Sans, system-ui, sans-serif"
+                fontSize="5"
+                fontWeight="400"
+                fill="#9E9D96"
+              >
+                SCAN
+              </text>
+            </g>
+          </g>
+        </svg>
       </div>
     );
   }
