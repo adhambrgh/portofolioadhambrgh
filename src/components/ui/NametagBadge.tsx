@@ -24,9 +24,11 @@ export function NametagBadge({
   className?: string;
 }) {
   const prefersReducedMotion = useReducedMotion();
-  const [isPointerDown, setIsPointerDown] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isPointerDownRef = useRef(false);
   const startXRef = useRef(0);
   const startAngleRef = useRef(0);
+  const animationFrameRef = useRef<number | null>(null);
 
   const physics = usePendulumPhysics(
     {
@@ -53,39 +55,49 @@ export function NametagBadge({
   const tension = Math.min(Math.abs(physics.angle) / MAX_ANGLE, 1);
   const strapStroke = tension > 0.35 ? "url(#lanyardGradTensed)" : "url(#lanyardGrad)";
 
-  const handlePointerDown = (clientX: number) => {
-    setIsPointerDown(true);
+  const getClientX = useCallback((e: React.MouseEvent | React.TouchEvent): number => {
+    if ("touches" in e) {
+      return e.touches[0].clientX;
+    }
+    return e.clientX;
+  }, []);
+
+  const handlePointerDown = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = getClientX(e);
+    isPointerDownRef.current = true;
     startXRef.current = clientX;
     startAngleRef.current = physics.angle;
     physics.setDragging(true);
-  };
+    e.preventDefault();
+  }, [physics, getClientX]);
 
-  const handlePointerMove = (clientX: number) => {
-    if (!isPointerDown) return;
+  const handlePointerMove = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    if (!isPointerDownRef.current) return;
+    const clientX = getClientX(e);
     const deltaX = clientX - startXRef.current;
     const targetAngle = startAngleRef.current + deltaX * 0.0035;
     physics.setTargetAngle(targetAngle);
-  };
+  }, [physics, getClientX]);
 
-  const handlePointerUp = () => {
-    if (!isPointerDown) return;
-    setIsPointerDown(false);
+  const handlePointerUp = useCallback(() => {
+    if (!isPointerDownRef.current) return;
+    isPointerDownRef.current = false;
     physics.setDragging(false);
     physics.setTargetAngle(0);
-  };
+  }, [physics]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (!physics.isAnimating) {
       physics.impulse(0.35);
     }
-  };
+  }, [physics]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       handleClick();
     }
-  };
+  }, [handleClick]);
 
   if (prefersReducedMotion) {
     const staticPaths = generateStaticStrapPaths({
@@ -143,13 +155,14 @@ export function NametagBadge({
 
   return (
     <div
+      ref={containerRef}
       className={`w-full h-full relative cursor-grab active:cursor-grabbing touch-none select-none ${className || ""}`}
-      onMouseDown={(e) => handlePointerDown(e.clientX)}
-      onMouseMove={(e) => handlePointerMove(e.clientX)}
+      onMouseDown={(e) => handlePointerDown(e)}
+      onMouseMove={(e) => handlePointerMove(e)}
       onMouseUp={handlePointerUp}
       onMouseLeave={handlePointerUp}
-      onTouchStart={(e) => handlePointerDown(e.touches[0].clientX)}
-      onTouchMove={(e) => handlePointerMove(e.touches[0].clientX)}
+      onTouchStart={(e) => handlePointerDown(e)}
+      onTouchMove={(e) => handlePointerMove(e)}
       onTouchEnd={handlePointerUp}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
