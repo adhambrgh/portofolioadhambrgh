@@ -64,25 +64,23 @@ export function ImagePlaceholder({
             </filter>
           </defs>
 
-          {/* LANYARD - V shape */}
+          {/* LANYARD - Straight vertical straps */}
           <g filter="url(#softShadow)">
-            {/* Left strap */}
+            {/* Left strap - straight down, aligned with holder left edge */}
             <path
-              d="M150 0 Q120 60 90 140 Q70 180 95 220"
+              d="M120 0 L120 220"
               stroke="url(#lanyardGrad)"
               strokeWidth="14"
               fill="none"
               strokeLinecap="round"
-              strokeLinejoin="round"
             />
-            {/* Right strap */}
+            {/* Right strap - straight down, aligned with holder right edge */}
             <path
-              d="M150 0 Q180 60 210 140 Q230 180 205 220"
+              d="M180 0 L180 220"
               stroke="url(#lanyardGrad)"
               strokeWidth="14"
               fill="none"
               strokeLinecap="round"
-              strokeLinejoin="round"
             />
             {/* Lanyard clip/hook at top center */}
             <g transform="translate(150, 10)">
