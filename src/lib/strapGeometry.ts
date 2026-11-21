@@ -6,102 +6,92 @@ export interface StrapPaths {
 export interface StrapGeometryConfig {
   clipX: number;
   clipY: number;
-  holderLeftX: number;
-  holderRightX: number;
-  holderY: number;
-  maxSag: number;
-  asymmetry: number;
+  cardCenterY: number;
+  clipHoleOffsetY: number;
+  anchorSpread: number;
+  gapAboveHole: number;
+  chainLen: number;
+  slackFactor: number;
 }
 
-const DEFAULT_CONFIG: StrapGeometryConfig = {
+export interface Point {
+  x: number;
+  y: number;
+}
+
+export const DEFAULT_STRAP_CONFIG: StrapGeometryConfig = {
   clipX: 150,
-  clipY: 0,
-  holderLeftX: 80,
-  holderRightX: 220,
-  holderY: 220,
-  maxSag: 28,
-  asymmetry: 0.15,
+  clipY: 8,
+  cardCenterY: 220,
+  clipHoleOffsetY: -16,
+  anchorSpread: 9,
+  gapAboveHole: 38,
+  chainLen: 232,
+  slackFactor: 0.42,
 };
 
-function cubicBezier(
-  x0: number,
-  y0: number,
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-  x3: number,
-  y3: number
-): string {
-  return `M${x0.toFixed(2)} ${y0.toFixed(2)} C${x1.toFixed(2)} ${y1.toFixed(2)}, ${x2.toFixed(2)} ${y2.toFixed(2)}, ${x3.toFixed(2)} ${y3.toFixed(2)}`;
+export function rotatePoint(p: Point, angleRad: number, pivot: Point): Point {
+  const cos = Math.cos(angleRad);
+  const sin = Math.sin(angleRad);
+  const dx = p.x - pivot.x;
+  const dy = p.y - pivot.y;
+  return {
+    x: pivot.x + dx * cos - dy * sin,
+    y: pivot.y + dx * sin + dy * cos,
+  };
 }
 
-function catenaryCurve(
-  x0: number,
-  y0: number,
-  x3: number,
-  y3: number,
-  sag: number,
-  tension: number
-): string {
-  const dx = x3 - x0;
-  const midX = x0 + dx / 2;
-  const midY = Math.max(y0, y3) - sag * tension;
+/**
+ * Titik tempat tali bertemu card.
+ * Berada sedikit di atas lubang clip agar kedua tali bertemu tepat di
+ * pangkal klip (membentuk huruf V yang rapi), bukan melebar ke samping.
+ * Nilai ini DIROTASI mengikuti card, sehingga tali selalu menempel.
+ */
+export function getAnchorPoints(
+  angleRad: number,
+  config: Partial<StrapGeometryConfig> = {}
+): { left: Point; right: Point; pivot: Point } {
+  const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
+  const pivot: Point = { x: cfg.clipX, y: cfg.clipY };
 
-  const ctrlOffset = Math.abs(dx) * 0.35;
+  const anchorY = cfg.cardCenterY + cfg.clipHoleOffsetY - cfg.gapAboveHole;
+  const localLeft: Point = { x: cfg.clipX - cfg.anchorSpread, y: anchorY };
+  const localRight: Point = { x: cfg.clipX + cfg.anchorSpread, y: anchorY };
 
-  const x1 = midX - ctrlOffset;
-  const x2 = midX + ctrlOffset;
-  const y1 = midY;
-  const y2 = midY;
+  return {
+    left: rotatePoint(localLeft, angleRad, pivot),
+    right: rotatePoint(localRight, angleRad, pivot),
+    pivot,
+  };
+}
 
-  return cubicBezier(x0, y0, x1, y1, x2, y2, x3, y3);
+/**
+ * Kurva tali yang lentur seperti kain:
+ * - melengkung ke BAWAH (gravitasi) saat kendur
+ * - menegang saat card ditarik menjauh
+ */
+function springyCurve(clip: Point, end: Point, chainLen: number, slackFactor: number): string {
+  const dist = Math.hypot(end.x - clip.x, end.y - clip.y);
+  const slack = Math.max(0, chainLen - dist);
+
+  const midX = (clip.x + end.x) / 2;
+  const midY = (clip.y + end.y) / 2;
+
+  const sagY = midY + slack * slackFactor;
+
+  return `M${clip.x.toFixed(2)} ${clip.y.toFixed(2)} Q${midX.toFixed(2)} ${sagY.toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
 }
 
 export function generateStrapPaths(
-  angle: number,
+  strapLag: number,
   config: Partial<StrapGeometryConfig> = {}
 ): StrapPaths {
-  const cfg = { ...DEFAULT_CONFIG, ...config };
-
-  const angleRatio = Math.max(-1, Math.min(1, angle / (25 * Math.PI / 180)));
-
-  const clipX = cfg.clipX + angle * 15;
-  const clipY = cfg.clipY;
-
-  const leftHolderX = cfg.holderLeftX + angle * 10;
-  const rightHolderX = cfg.holderRightX + angle * 10;
-  const holderY = cfg.holderY;
-
-  const baseSag = cfg.maxSag;
-
-  const leftTension = 1 - angleRatio * 0.3;
-  const rightTension = 1 + angleRatio * 0.3;
-
-  const leftSag = baseSag * leftTension * (1 + cfg.asymmetry * 0.2);
-  const rightSag = baseSag * rightTension * (1 - cfg.asymmetry * 0.2);
-
-  const leftPath = catenaryCurve(
-    clipX,
-    clipY,
-    leftHolderX,
-    holderY,
-    leftSag,
-    leftTension
-  );
-
-  const rightPath = catenaryCurve(
-    clipX,
-    clipY,
-    rightHolderX,
-    holderY,
-    rightSag,
-    rightTension
-  );
+  const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
+  const anchors = getAnchorPoints(strapLag, cfg);
 
   return {
-    left: leftPath,
-    right: rightPath,
+    left: springyCurve(anchors.pivot, anchors.left, cfg.chainLen, cfg.slackFactor),
+    right: springyCurve(anchors.pivot, anchors.right, cfg.chainLen, cfg.slackFactor),
   };
 }
 

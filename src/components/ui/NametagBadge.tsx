@@ -1,18 +1,31 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { generateStrapPaths, generateStaticStrapPaths } from "@/lib/strapGeometry";
+import { generateStrapPaths, generateStaticStrapPaths, DEFAULT_STRAP_CONFIG } from "@/lib/strapGeometry";
+import type { StrapGeometryConfig } from "@/lib/strapGeometry";
 import { usePendulumPhysics } from "@/hooks/usePendulumPhysics";
 
-const MAX_ANGLE = (25 * Math.PI) / 180;
+const MAX_ANGLE = (35 * Math.PI) / 180;
 const SVG_WIDTH = 300;
 const SVG_HEIGHT = 400;
 
 const CLIP_X = 150;
 const CLIP_Y = 0;
-const HOLDER_LEFT_X = 80;
-const HOLDER_RIGHT_X = 220;
-const HOLDER_Y = 220;
+const CARD_CENTER_Y = 220;
+const CLIP_HOLE_OFFSET_Y = -16;
+const STRAP_LERP = 0.12;
+const DRAG_EASE_POWER = 0.85;
+const DRAG_PIXEL_RANGE = 200;
+
+const STRAP_GEO: StrapGeometryConfig = {
+  ...DEFAULT_STRAP_CONFIG,
+  clipX: CLIP_X,
+  clipY: 8,
+  cardCenterY: CARD_CENTER_Y,
+  clipHoleOffsetY: CLIP_HOLE_OFFSET_Y,
+};
+
+const DEBUG = false;
 
 export function NametagBadge({
   name = "Adham Baarigh",
@@ -25,65 +38,116 @@ export function NametagBadge({
 }) {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isPointerDown, setIsPointerDown] = useState(false);
   const isPointerDownRef = useRef(false);
   const startXRef = useRef(0);
   const startAngleRef = useRef(0);
-  const animationFrameRef = useRef<number | null>(null);
+  const strapLagRef = useRef(0);
+  const lagRafRef = useRef<number | null>(null);
 
   const physics = usePendulumPhysics(
     {
       maxAngle: MAX_ANGLE,
-      stiffness: 0.85,
-      damping: 0.18,
+      stiffness: 0.55,
+      damping: 0.055,
       mass: 1,
       elasticLimit: 0.25,
+      releaseVelocityScale: 0.8,
     },
     prefersReducedMotion
   );
 
+  useEffect(() => {
+    strapLagRef.current = 0;
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      if (lagRafRef.current !== null) {
+        cancelAnimationFrame(lagRafRef.current);
+        lagRafRef.current = null;
+      }
+      return;
+    }
+
+    let active = true;
+    const tick = () => {
+      if (!active) return;
+      const diff = physics.angle - strapLagRef.current;
+      const dragging = isPointerDownRef.current;
+
+      if (dragging) {
+        strapLagRef.current += diff * 0.22;
+      } else {
+        strapLagRef.current += diff * STRAP_LERP;
+        if (Math.abs(diff) < 0.0004) strapLagRef.current = physics.angle;
+      }
+
+      lagRafRef.current = requestAnimationFrame(tick);
+    };
+
+    lagRafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      active = false;
+      if (lagRafRef.current !== null) {
+        cancelAnimationFrame(lagRafRef.current);
+        lagRafRef.current = null;
+      }
+    };
+  }, [physics.angle, prefersReducedMotion]);
+
   const angleDeg = physics.angle * (180 / Math.PI);
-  const strapPaths = generateStrapPaths(physics.angle, {
-    clipX: CLIP_X,
-    clipY: CLIP_Y,
-    holderLeftX: HOLDER_LEFT_X,
-    holderRightX: HOLDER_RIGHT_X,
-    holderY: HOLDER_Y,
-    maxSag: 28,
-    asymmetry: 0.15,
-  });
+  const strapPaths = generateStrapPaths(strapLagRef.current, STRAP_GEO);
 
   const tension = Math.min(Math.abs(physics.angle) / MAX_ANGLE, 1);
   const strapStroke = tension > 0.35 ? "url(#lanyardGradTensed)" : "url(#lanyardGrad)";
 
-  const getClientX = useCallback((e: React.MouseEvent | React.TouchEvent): number => {
-    if ("touches" in e) {
-      return e.touches[0].clientX;
-    }
+  const getClientX = useCallback((e: React.PointerEvent): number => {
     return e.clientX;
   }, []);
 
-  const handlePointerDown = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    if (e.button !== undefined && e.button !== 0 && e.pointerType === "mouse") return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore capture errors */
+    }
     const clientX = getClientX(e);
     isPointerDownRef.current = true;
+    setIsPointerDown(true);
     startXRef.current = clientX;
     startAngleRef.current = physics.angle;
     physics.setDragging(true);
-    e.preventDefault();
+    if (DEBUG) console.log("[badge] drag start", { clientX, angle: physics.angle });
   }, [physics, getClientX]);
 
-  const handlePointerMove = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
     if (!isPointerDownRef.current) return;
     const clientX = getClientX(e);
     const deltaX = clientX - startXRef.current;
-    const targetAngle = startAngleRef.current + deltaX * 0.0035;
-    physics.setAngleDirectly(targetAngle);
+    const norm = Math.max(-1.6, Math.min(1.6, deltaX / DRAG_PIXEL_RANGE));
+    const eased =
+      Math.sign(norm) * Math.pow(Math.abs(norm), DRAG_EASE_POWER) * MAX_ANGLE * 1.15;
+    const nextAngle = startAngleRef.current + eased;
+    physics.setAngleDirectly(nextAngle);
+    if (DEBUG) console.log("[badge] drag move", { deltaX, angle: nextAngle.toFixed(4) });
   }, [physics, getClientX]);
 
-  const handlePointerUp = useCallback(() => {
+  const handlePointerUp = useCallback((e: React.PointerEvent) => {
     if (!isPointerDownRef.current) return;
     isPointerDownRef.current = false;
+    setIsPointerDown(false);
+    try {
+      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch {
+      /* ignore */
+    }
     physics.setDragging(false);
-    physics.setTargetAngle(0);
+    if (DEBUG) console.log("[badge] drag end -> release swing");
   }, [physics]);
 
   const handleClick = useCallback(() => {
@@ -100,15 +164,7 @@ export function NametagBadge({
   }, [handleClick]);
 
   if (prefersReducedMotion) {
-    const staticPaths = generateStaticStrapPaths({
-      clipX: CLIP_X,
-      clipY: CLIP_Y,
-      holderLeftX: HOLDER_LEFT_X,
-      holderRightX: HOLDER_RIGHT_X,
-      holderY: HOLDER_Y,
-      maxSag: 28,
-      asymmetry: 0.15,
-    });
+    const staticPaths = generateStaticStrapPaths(STRAP_GEO);
 
     return (
       <svg
@@ -136,17 +192,10 @@ export function NametagBadge({
         <g filter="url(#softShadowStatic)">
           <path d={staticPaths.left} stroke="url(#lanyardGradStatic)" strokeWidth="14" fill="none" strokeLinecap="round" />
           <path d={staticPaths.right} stroke="url(#lanyardGradStatic)" strokeWidth="14" fill="none" strokeLinecap="round" />
-          <g transform="translate(150, 10)">
-            <ellipse cx="0" cy="0" rx="12" ry="6" fill="#7886A8" opacity="0.9" />
-            <ellipse cx="0" cy="0" rx="7" ry="3" fill="#F7F6F2" />
-          </g>
-          <g transform="translate(150, 120)">
-            <rect x="-16" y="-6" width="32" height="12" rx="3" fill="#7886A8" opacity="0.7" />
-            <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#F7F6F2" opacity="0.5" />
-          </g>
         </g>
 
         <g transform="translate(150, 0)">
+          <ClipAndClasp />
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
@@ -157,17 +206,17 @@ export function NametagBadge({
     <div
       ref={containerRef}
       className={`w-full h-full relative cursor-grab active:cursor-grabbing touch-none select-none ${className || ""}`}
-      onMouseDown={(e) => handlePointerDown(e)}
-      onMouseMove={(e) => handlePointerMove(e)}
-      onMouseUp={handlePointerUp}
-      onMouseLeave={handlePointerUp}
-      onTouchStart={(e) => handlePointerDown(e)}
-      onTouchMove={(e) => handlePointerMove(e)}
-      onTouchEnd={handlePointerUp}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+      onLostPointerCapture={handlePointerUp}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
+      data-dragging={isPointerDown}
+      data-angle={angleDeg.toFixed(1)}
       aria-label={`${name}, ${role} badge. Drag ke kiri kanan untuk mengayun, klik untuk memantul.`}
     >
       <svg
@@ -198,21 +247,29 @@ export function NametagBadge({
         <g filter="url(#softShadow)">
           <path d={strapPaths.left} stroke={strapStroke} strokeWidth="14" fill="none" strokeLinecap="round" />
           <path d={strapPaths.right} stroke={strapStroke} strokeWidth="14" fill="none" strokeLinecap="round" />
-          <g transform="translate(150, 10)">
-            <ellipse cx="0" cy="0" rx="12" ry="6" fill="#7886A8" opacity="0.9" />
-            <ellipse cx="0" cy="0" rx="7" ry="3" fill="#F7F6F2" />
-          </g>
-          <g transform="translate(150, 120)">
-            <rect x="-16" y="-6" width="32" height="12" rx="3" fill="#7886A8" opacity="0.7" />
-            <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#F7F6F2" opacity="0.5" />
-          </g>
         </g>
 
-        <g transform={`translate(150, 0) rotate(${angleDeg.toFixed(2)})`}>
+        <g transform={`translate(${CLIP_X}, 0) rotate(${angleDeg.toFixed(2)})`}>
+          <ClipAndClasp />
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
     </div>
+  );
+}
+
+function ClipAndClasp() {
+  return (
+    <>
+      <g transform="translate(0, 10)">
+        <ellipse cx="0" cy="0" rx="12" ry="6" fill="#7886A8" opacity="0.9" />
+        <ellipse cx="0" cy="0" rx="7" ry="3" fill="#F7F6F2" />
+      </g>
+      <g transform="translate(0, 120)">
+        <rect x="-16" y="-6" width="32" height="12" rx="3" fill="#7886A8" opacity="0.7" />
+        <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#F7F6F2" opacity="0.5" />
+      </g>
+    </>
   );
 }
 

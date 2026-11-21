@@ -8,13 +8,13 @@ export interface PendulumPhysicsConfig {
   damping: number;
   mass: number;
   elasticLimit: number;
+  releaseVelocityScale: number;
 }
 
 export interface PendulumPhysicsReturn {
   angle: number;
   angularVelocity: number;
   isAnimating: boolean;
-  setTargetAngle: (angle: number, immediate?: boolean) => void;
   setAngleDirectly: (angle: number) => void;
   impulse: (velocity: number) => void;
   stop: () => void;
@@ -22,11 +22,12 @@ export interface PendulumPhysicsReturn {
 }
 
 const DEFAULT_CONFIG: PendulumPhysicsConfig = {
-  maxAngle: 25 * Math.PI / 180,
-  stiffness: 0.8,
-  damping: 0.15,
+  maxAngle: (35 * Math.PI) / 180,
+  stiffness: 0.55,
+  damping: 0.055,
   mass: 1,
-  elasticLimit: 0.2,
+  elasticLimit: 0.25,
+  releaseVelocityScale: 0.8,
 };
 
 export function usePendulumPhysics(
@@ -34,168 +35,192 @@ export function usePendulumPhysics(
   prefersReducedMotion: boolean
 ): PendulumPhysicsReturn {
   const cfg = { ...DEFAULT_CONFIG, ...config };
+  const cfgRef = useRef(cfg);
+  cfgRef.current = cfg;
+
   const [angle, setAngle] = useState(0);
   const [angularVelocity, setAngularVelocity] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const targetAngleRef = useRef(0);
-  const animationFrameRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number>(0);
+  const angleRef = useRef(0);
+  const velocityRef = useRef(0);
   const isDraggingRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
+  const lastTimeRef = useRef(0);
+  const lastDragTimeRef = useRef(0);
+  const lastDragAngleRef = useRef(0);
+  const prefersReducedMotionRef = useRef(prefersReducedMotion);
+  prefersReducedMotionRef.current = prefersReducedMotion;
 
-  const stopAnimation = useCallback(() => {
-    if (animationFrameRef.current !== null) {
-      cancelAnimationFrame(animationFrameRef.current);
-      animationFrameRef.current = null;
+  const stopRaf = useCallback(() => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     }
-    setIsAnimating(false);
   }, []);
 
-  const step = useCallback(
-    (currentTime: number) => {
-      if (prefersReducedMotion) {
-        stopAnimation();
-        return;
-      }
+  const clampAngle = useCallback((value: number) => {
+    const limit = cfgRef.current.maxAngle * (1 + cfgRef.current.elasticLimit);
+    return Math.max(-limit, Math.min(limit, value));
+  }, []);
 
-      const dt = lastTimeRef.current ? (currentTime - lastTimeRef.current) / 1000 : 0;
-      lastTimeRef.current = currentTime;
+  const stepRef = useRef<(now: number) => void>(() => {});
+  stepRef.current = (now: number) => {
+    const c = cfgRef.current;
 
-      if (dt === 0 || dt > 0.1) {
-        animationFrameRef.current = requestAnimationFrame(step);
-        return;
-      }
-
-      const currentAngle = angle;
-      const currentVelocity = angularVelocity;
-
-      const targetAngle = isDraggingRef.current
-        ? targetAngleRef.current
-        : 0;
-
-      const angleDiff = targetAngle - currentAngle;
-
-      const springForce = -cfg.stiffness * angleDiff;
-      const dampingForce = -cfg.damping * currentVelocity;
-      const acceleration = (springForce + dampingForce) / cfg.mass;
-
-      let newVelocity = currentVelocity + acceleration * dt;
-      let newAngle = currentAngle + newVelocity * dt;
-
-      if (!isDraggingRef.current) {
-        if (Math.abs(newAngle) > cfg.maxAngle * (1 + cfg.elasticLimit)) {
-          const overLimit = Math.abs(newAngle) - cfg.maxAngle * (1 + cfg.elasticLimit);
-          const elasticForce = -overLimit * cfg.stiffness * 2;
-          newVelocity += (elasticForce / cfg.mass) * dt * Math.sign(-newAngle);
-        }
-      }
-
-      const EPSILON = 0.0001;
-      const isSettled =
-        !isDraggingRef.current &&
-        Math.abs(newAngle) < EPSILON &&
-        Math.abs(newVelocity) < EPSILON;
-
-      if (isSettled) {
-        setAngle(0);
-        setAngularVelocity(0);
-        stopAnimation();
-        return;
-      }
-
-      setAngle(newAngle);
-      setAngularVelocity(newVelocity);
-
-      animationFrameRef.current = requestAnimationFrame(step);
-    },
-    [angle, angularVelocity, cfg, prefersReducedMotion, stopAnimation]
-  );
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      stopAnimation();
+    if (prefersReducedMotionRef.current) {
+      angleRef.current = 0;
+      velocityRef.current = 0;
       setAngle(0);
       setAngularVelocity(0);
+      setIsAnimating(false);
+      rafRef.current = null;
       return;
     }
-  }, [prefersReducedMotion, stopAnimation]);
 
-  const setTargetAngle = useCallback(
-    (newTargetAngle: number, immediate = false) => {
-      const clamped = Math.max(
-        -cfg.maxAngle * (1 + cfg.elasticLimit),
-        Math.min(cfg.maxAngle * (1 + cfg.elasticLimit), newTargetAngle)
-      );
-      targetAngleRef.current = clamped;
+    const dt = lastTimeRef.current ? (now - lastTimeRef.current) / 1000 : 0;
+    lastTimeRef.current = now;
 
-      if (immediate) {
-        setAngle(clamped);
-        setAngularVelocity(0);
-        stopAnimation();
-      } else if (!isAnimating) {
-        setIsAnimating(true);
-        lastTimeRef.current = performance.now();
-        animationFrameRef.current = requestAnimationFrame(step);
+    if (dt <= 0 || dt > 0.1) {
+      rafRef.current = requestAnimationFrame((t) => stepRef.current(t));
+      return;
+    }
+
+    const diff = 0 - angleRef.current;
+    const springForce = -c.stiffness * diff;
+    const dampingForce = -c.damping * velocityRef.current;
+    const accel = (springForce + dampingForce) / c.mass;
+
+    velocityRef.current += accel * dt;
+    angleRef.current = clampAngle(angleRef.current + velocityRef.current * dt);
+
+    const EPSILON_ANGLE = 0.0008;
+    const EPSILON_VELOCITY = 0.002;
+    const settled =
+      Math.abs(angleRef.current) < EPSILON_ANGLE &&
+      Math.abs(velocityRef.current) < EPSILON_VELOCITY;
+
+    if (settled) {
+      angleRef.current = 0;
+      velocityRef.current = 0;
+      setAngle(0);
+      setAngularVelocity(0);
+      setIsAnimating(false);
+      rafRef.current = null;
+      return;
+    }
+
+    setAngle(angleRef.current);
+    setAngularVelocity(velocityRef.current);
+
+    rafRef.current = requestAnimationFrame((t) => stepRef.current(t));
+  };
+
+  const startRaf = useCallback(() => {
+    if (rafRef.current !== null) return;
+    if (prefersReducedMotionRef.current) return;
+    setIsAnimating(true);
+    lastTimeRef.current = 0;
+    rafRef.current = requestAnimationFrame((t) => stepRef.current(t));
+  }, []);
+
+  const setAngleDirectly = useCallback(
+    (newAngle: number) => {
+      const clamped = clampAngle(newAngle);
+      const now = performance.now();
+      const dt = now - lastDragTimeRef.current;
+
+      if (dt > 0 && dt < 120 && lastDragTimeRef.current !== 0) {
+        const deltaAngle = clamped - lastDragAngleRef.current;
+        velocityRef.current = (deltaAngle / (dt / 1000)) * cfgRef.current.releaseVelocityScale;
+      }
+
+      lastDragTimeRef.current = now;
+      lastDragAngleRef.current = clamped;
+
+      angleRef.current = clamped;
+      setAngle(clamped);
+      setAngularVelocity(velocityRef.current);
+    },
+    [clampAngle]
+  );
+
+  const setDragging = useCallback(
+    (dragging: boolean) => {
+      if (dragging) {
+        stopRaf();
+        setIsAnimating(false);
+        isDraggingRef.current = true;
+        lastDragTimeRef.current = 0;
+        lastDragAngleRef.current = angleRef.current;
+        velocityRef.current = 0;
+      } else {
+        isDraggingRef.current = false;
+
+        const now = performance.now();
+        const dt = now - lastDragTimeRef.current;
+        if (dt > 0 && dt < 150 && lastDragTimeRef.current !== 0) {
+          const deltaAngle = angleRef.current - lastDragAngleRef.current;
+          velocityRef.current = (deltaAngle / (dt / 1000)) * cfgRef.current.releaseVelocityScale;
+        }
+
+        velocityRef.current = Math.max(
+          -40,
+          Math.min(40, velocityRef.current)
+        );
+
+        lastTimeRef.current = 0;
+        startRaf();
       }
     },
-    [cfg, isAnimating, step, stopAnimation]
+    [stopRaf, startRaf]
   );
 
   const impulse = useCallback(
     (velocity: number) => {
-      setAngularVelocity((prev) => prev + velocity);
-      if (!isAnimating) {
-        setIsAnimating(true);
-        lastTimeRef.current = performance.now();
-        animationFrameRef.current = requestAnimationFrame(step);
-      }
+      if (prefersReducedMotionRef.current) return;
+      velocityRef.current += velocity;
+      startRaf();
     },
-    [isAnimating, step]
+    [startRaf]
   );
 
   const stop = useCallback(() => {
-    setTargetAngle(0, true);
-  }, [setTargetAngle]);
-
-  const setAngleDirectly = useCallback((newAngle: number) => {
-    const clamped = Math.max(
-      -cfg.maxAngle * (1 + cfg.elasticLimit),
-      Math.min(cfg.maxAngle * (1 + cfg.elasticLimit), newAngle)
-    );
-    setAngle(clamped);
+    stopRaf();
+    angleRef.current = 0;
+    velocityRef.current = 0;
+    setAngle(0);
     setAngularVelocity(0);
-  }, [cfg]);
+    setIsAnimating(false);
+  }, [stopRaf]);
 
-  const setDragging = useCallback((dragging: boolean) => {
-    isDraggingRef.current = dragging;
-    if (dragging && !isAnimating) {
-      setIsAnimating(true);
-      lastTimeRef.current = performance.now();
-      animationFrameRef.current = requestAnimationFrame(step);
-    } else if (!dragging) {
-      // On release, target angle resets to 0, physics takes over
-      targetAngleRef.current = 0;
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      stopRaf();
+      angleRef.current = 0;
+      velocityRef.current = 0;
+      setAngle(0);
+      setAngularVelocity(0);
+      setIsAnimating(false);
     }
-  }, [isAnimating, step]);
+  }, [prefersReducedMotion, stopRaf]);
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, []);
 
   return {
     angle,
     angularVelocity,
     isAnimating,
-    setTargetAngle,
     setAngleDirectly,
     impulse,
     stop,
     setDragging,
   };
-}
-
-export function useInitialTilt(maxTilt: number): number {
-  const [tilt, setTilt] = useState(0);
-
-  useEffect(() => {
-    setTilt((Math.random() - 0.5) * 2 * maxTilt);
-  }, [maxTilt]);
-
-  return tilt;
 }
