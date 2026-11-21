@@ -37,9 +37,10 @@ export function Navigation() {
       role="banner"
     >
       <nav
-        className="container-custom flex h-16 items-center justify-between"
+        className="container-wide flex h-16 items-center justify-between"
         aria-label="Main navigation"
       >
+        {/* Zona Kiri: Logo — sejajar "HELLO, I'M ADHAM" */}
         <Link
           href="/"
           className="font-sans font-medium text-lg text-foreground hover:text-accent transition-colors focus-ring"
@@ -48,6 +49,7 @@ export function Navigation() {
           ADHAM BAARIGH
         </Link>
 
+        {/* Zona Tengah: Nav links */}
         <div className="hidden md:flex md:items-center md:gap-8">
           {navItems.map((item) => (
             <Link
@@ -64,8 +66,10 @@ export function Navigation() {
               {item.label}
             </Link>
           ))}
-          <AvailabilityBadge />
         </div>
+
+        {/* Zona Kanan: Badge — sejajar edge kanan portrait placeholder */}
+        <AvailabilityBadge />
 
         <button
           className="md:hidden p-2 text-foreground hover:text-accent transition-colors focus-ring"
@@ -94,17 +98,19 @@ export function Navigation() {
           aria-modal="true"
           aria-label="Mobile menu"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="font-sans font-medium text-2xl text-foreground hover:text-accent transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <AvailabilityBadge />
+          <div className="container-wide w-full flex flex-col items-center justify-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="font-sans font-medium text-2xl text-foreground hover:text-accent transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <AvailabilityBadge />
+          </div>
         </div>
       )}
     </header>
