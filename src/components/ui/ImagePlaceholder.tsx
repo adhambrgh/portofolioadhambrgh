@@ -4,8 +4,9 @@ import { type ImgHTMLAttributes } from "react";
 import { cn, getInitials } from "@/lib/utils";
 
 interface ImagePlaceholderProps extends ImgHTMLAttributes<HTMLDivElement> {
-  type: "portrait" | "project";
+  type: "portrait" | "project" | "nametag";
   name?: string;
+  role?: string;
   techStack?: string[];
   className?: string;
   aspectRatio?: string;
@@ -14,12 +15,56 @@ interface ImagePlaceholderProps extends ImgHTMLAttributes<HTMLDivElement> {
 export function ImagePlaceholder({
   type,
   name,
+  role,
   techStack,
   className,
-  aspectRatio = type === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]",
+  aspectRatio = type === "portrait" || type === "nametag" ? "aspect-[3/4]" : "aspect-[4/3]",
   ...props
 }: ImagePlaceholderProps) {
   const initials = name ? getInitials(name) : type === "portrait" ? "AB" : "··";
+
+  if (type === "nametag") {
+    return (
+      <div
+        className={cn(
+          "relative flex flex-col items-center",
+          aspectRatio,
+          className
+        )}
+        {...props}
+      >
+        {/* Tali lanyard: 2 garis tipis vertikal accent */}
+        <div className="w-0.5 h-16 bg-accent/40" aria-hidden="true" />
+        <div className="w-0.5 h-16 bg-accent/20 ml-1" aria-hidden="true" />
+        
+        {/* Kartu nametag */}
+        <div className="relative w-full h-full bg-card border border-border shadow-sm flex flex-col items-center justify-center p-6">
+          {/* Clip holder atas kartu */}
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-2 bg-accent rounded-b-lg" aria-hidden="true" />
+          
+          {/* Nama - Instrument Serif */}
+          <p className="font-serif text-xl font-medium text-foreground text-center mb-1">
+            {name || "Adham Baarigh"}
+          </p>
+          
+          {/* Role - DM Sans */}
+          <p className="font-sans text-sm text-secondary text-center mb-4">
+            {role || "Software Engineer"}
+          </p>
+          
+          {/* QR code dekoratif */}
+          <div className="w-20 h-20 bg-muted/30 flex items-center justify-center" aria-hidden="true">
+            <svg viewBox="0 0 100 100" className="w-full h-full text-muted" aria-hidden="true">
+              <rect x="5" y="5" width="90" height="90" fill="none" stroke="currentColor" strokeWidth="2"/>
+              {[10,25,40,55,70,85].flatMap(x => [10,25,40,55,70,85].map(y => 
+                <rect key={`${x}-${y}`} x={x} y={y} width="8" height="8" fill="currentColor" opacity="0.3"/>
+              ))}
+            </svg>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (type === "portrait") {
     return (

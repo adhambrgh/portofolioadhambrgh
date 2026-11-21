@@ -80,7 +80,7 @@ export function Hero() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
             <div className="relative aspect-[3/4] max-w-md mx-auto lg:max-w-none">
-              <ImagePlaceholder type="portrait" name="Adham Baarigh" className="rounded-none" />
+              <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
             </div>
 
