@@ -28,7 +28,7 @@ export function About() {
       className="section-padding bg-card"
       aria-labelledby="about-heading"
     >
-      <div className="container-custom">
+      <div className="container-wide">
         <SectionHeader
           label="02 — ABOUT"
           heading="A little about the person behind the code."

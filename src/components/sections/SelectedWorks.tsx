@@ -36,7 +36,7 @@ export function SelectedWorks() {
       className="section-padding bg-background"
       aria-labelledby="selected-works-heading"
     >
-      <div className="container-custom">
+      <div className="container-wide">
         <SectionHeader
           label="01 — SELECTED WORK"
           heading="Some things I&apos;ve built."

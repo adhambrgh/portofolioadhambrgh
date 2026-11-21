@@ -49,13 +49,13 @@ export function Contact() {
       className="section-padding bg-card"
       aria-labelledby="contact-heading"
     >
-      <div className="container-custom">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="max-w-3xl mx-auto text-center"
+          className="text-center"
         >
           <SectionHeader
             label="04 — GET IN TOUCH"

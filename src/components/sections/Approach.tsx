@@ -34,7 +34,7 @@ export function Approach() {
       className="section-padding bg-background"
       aria-labelledby="approach-heading"
     >
-      <div className="container-custom">
+      <div className="container-wide">
         <SectionHeader
           label="03 — MY APPROACH"
           heading="How I build digital products."
