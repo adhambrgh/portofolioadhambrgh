@@ -165,8 +165,8 @@ export function usePendulumPhysics(
         }
 
         velocityRef.current = Math.max(
-          -40,
-          Math.min(40, velocityRef.current)
+          -12,
+          Math.min(12, velocityRef.current)
         );
 
         lastTimeRef.current = 0;

@@ -79,7 +79,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="relative aspect-[3/4] max-w-md mx-auto lg:max-w-none">
+            <div className="relative -mt-6 md:-mt-8 lg:-mt-10 aspect-[3/4] max-w-md mx-auto lg:max-w-none overflow-visible">
               <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
             </div>

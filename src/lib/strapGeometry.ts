@@ -3,31 +3,27 @@ export interface StrapPaths {
   right: string;
 }
 
-export interface StrapGeometryConfig {
-  clipX: number;
-  clipY: number;
-  cardCenterY: number;
-  clipHoleOffsetY: number;
-  anchorSpread: number;
-  gapAboveHole: number;
-  chainLen: number;
-  slackFactor: number;
-}
-
 export interface Point {
   x: number;
   y: number;
 }
 
+export interface StrapGeometryConfig {
+  hangLeft: Point;
+  hangRight: Point;
+  meetLocal: Point;
+  cardPivot: Point;
+  chainLen: number;
+  slackFactor: number;
+}
+
 export const DEFAULT_STRAP_CONFIG: StrapGeometryConfig = {
-  clipX: 150,
-  clipY: 8,
-  cardCenterY: 220,
-  clipHoleOffsetY: -16,
-  anchorSpread: 9,
-  gapAboveHole: 38,
-  chainLen: 232,
-  slackFactor: 0.42,
+  hangLeft: { x: 124, y: -10 },
+  hangRight: { x: 176, y: -10 },
+  meetLocal: { x: 150, y: 204 },
+  cardPivot: { x: 150, y: 0 },
+  chainLen: 245,
+  slackFactor: 0.3,
 };
 
 export function rotatePoint(p: Point, angleRad: number, pivot: Point): Point {
@@ -41,45 +37,24 @@ export function rotatePoint(p: Point, angleRad: number, pivot: Point): Point {
   };
 }
 
-/**
- * Titik tempat tali bertemu card.
- * Berada sedikit di atas lubang clip agar kedua tali bertemu tepat di
- * pangkal klip (membentuk huruf V yang rapi), bukan melebar ke samping.
- * Nilai ini DIROTASI mengikuti card, sehingga tali selalu menempel.
- */
-export function getAnchorPoints(
+export function getMeetPoint(
   angleRad: number,
   config: Partial<StrapGeometryConfig> = {}
-): { left: Point; right: Point; pivot: Point } {
+): Point {
   const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
-  const pivot: Point = { x: cfg.clipX, y: cfg.clipY };
-
-  const anchorY = cfg.cardCenterY + cfg.clipHoleOffsetY - cfg.gapAboveHole;
-  const localLeft: Point = { x: cfg.clipX - cfg.anchorSpread, y: anchorY };
-  const localRight: Point = { x: cfg.clipX + cfg.anchorSpread, y: anchorY };
-
-  return {
-    left: rotatePoint(localLeft, angleRad, pivot),
-    right: rotatePoint(localRight, angleRad, pivot),
-    pivot,
-  };
+  return rotatePoint(cfg.meetLocal, angleRad, cfg.cardPivot);
 }
 
-/**
- * Kurva tali yang lentur seperti kain:
- * - melengkung ke BAWAH (gravitasi) saat kendur
- * - menegang saat card ditarik menjauh
- */
-function springyCurve(clip: Point, end: Point, chainLen: number, slackFactor: number): string {
-  const dist = Math.hypot(end.x - clip.x, end.y - clip.y);
+function springyCurve(hang: Point, end: Point, chainLen: number, slackFactor: number): string {
+  const dist = Math.hypot(end.x - hang.x, end.y - hang.y);
   const slack = Math.max(0, chainLen - dist);
 
-  const midX = (clip.x + end.x) / 2;
-  const midY = (clip.y + end.y) / 2;
+  const midX = (hang.x + end.x) / 2;
+  const midY = (hang.y + end.y) / 2;
 
   const sagY = midY + slack * slackFactor;
 
-  return `M${clip.x.toFixed(2)} ${clip.y.toFixed(2)} Q${midX.toFixed(2)} ${sagY.toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+  return `M${hang.x.toFixed(2)} ${hang.y.toFixed(2)} Q${midX.toFixed(2)} ${sagY.toFixed(2)} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
 }
 
 export function generateStrapPaths(
@@ -87,11 +62,11 @@ export function generateStrapPaths(
   config: Partial<StrapGeometryConfig> = {}
 ): StrapPaths {
   const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
-  const anchors = getAnchorPoints(strapLag, cfg);
+  const meet = getMeetPoint(strapLag, cfg);
 
   return {
-    left: springyCurve(anchors.pivot, anchors.left, cfg.chainLen, cfg.slackFactor),
-    right: springyCurve(anchors.pivot, anchors.right, cfg.chainLen, cfg.slackFactor),
+    left: springyCurve(cfg.hangLeft, meet, cfg.chainLen, cfg.slackFactor),
+    right: springyCurve(cfg.hangRight, meet, cfg.chainLen, cfg.slackFactor),
   };
 }
 

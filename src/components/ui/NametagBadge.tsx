@@ -7,22 +7,24 @@ import { usePendulumPhysics } from "@/hooks/usePendulumPhysics";
 
 const MAX_ANGLE = (35 * Math.PI) / 180;
 const SVG_WIDTH = 300;
-const SVG_HEIGHT = 400;
+const SVG_HEIGHT = 420;
+const SVG_VIEWBOX = `0 -20 ${SVG_WIDTH} ${SVG_HEIGHT}`;
 
 const CLIP_X = 150;
 const CLIP_Y = 0;
 const CARD_CENTER_Y = 220;
 const CLIP_HOLE_OFFSET_Y = -16;
 const STRAP_LERP = 0.12;
-const DRAG_EASE_POWER = 0.85;
-const DRAG_PIXEL_RANGE = 200;
+const DRAG_SENSITIVITY = 0.0035;
 
 const STRAP_GEO: StrapGeometryConfig = {
   ...DEFAULT_STRAP_CONFIG,
-  clipX: CLIP_X,
-  clipY: 8,
-  cardCenterY: CARD_CENTER_Y,
-  clipHoleOffsetY: CLIP_HOLE_OFFSET_Y,
+  hangLeft: { x: 124, y: -10 },
+  hangRight: { x: 176, y: -10 },
+  meetLocal: { x: CLIP_X, y: CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y },
+  cardPivot: { x: CLIP_X, y: CLIP_Y },
+  chainLen: 245,
+  slackFactor: 0.3,
 };
 
 const DEBUG = false;
@@ -48,11 +50,11 @@ export function NametagBadge({
   const physics = usePendulumPhysics(
     {
       maxAngle: MAX_ANGLE,
-      stiffness: 0.55,
-      damping: 0.055,
+      stiffness: 0.65,
+      damping: 0.12,
       mass: 1,
       elasticLimit: 0.25,
-      releaseVelocityScale: 0.8,
+      releaseVelocityScale: 0.15,
     },
     prefersReducedMotion
   );
@@ -127,10 +129,7 @@ export function NametagBadge({
     if (!isPointerDownRef.current) return;
     const clientX = getClientX(e);
     const deltaX = clientX - startXRef.current;
-    const norm = Math.max(-1.6, Math.min(1.6, deltaX / DRAG_PIXEL_RANGE));
-    const eased =
-      Math.sign(norm) * Math.pow(Math.abs(norm), DRAG_EASE_POWER) * MAX_ANGLE * 1.15;
-    const nextAngle = startAngleRef.current + eased;
+    const nextAngle = startAngleRef.current + deltaX * DRAG_SENSITIVITY;
     physics.setAngleDirectly(nextAngle);
     if (DEBUG) console.log("[badge] drag move", { deltaX, angle: nextAngle.toFixed(4) });
   }, [physics, getClientX]);
@@ -168,7 +167,7 @@ export function NametagBadge({
 
     return (
       <svg
-        viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
+        viewBox={SVG_VIEWBOX}
         className={`w-full h-full select-none ${className || ""}`}
         preserveAspectRatio="xMidYMid meet"
         role="img"
@@ -194,8 +193,10 @@ export function NametagBadge({
           <path d={staticPaths.right} stroke="url(#lanyardGradStatic)" strokeWidth="14" fill="none" strokeLinecap="round" />
         </g>
 
+        <HangRings />
+
         <g transform="translate(150, 0)">
-          <ClipAndClasp />
+          <MeetClip />
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
@@ -220,7 +221,7 @@ export function NametagBadge({
       aria-label={`${name}, ${role} badge. Drag ke kiri kanan untuk mengayun, klik untuk memantul.`}
     >
       <svg
-        viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
+        viewBox={SVG_VIEWBOX}
         className="w-full h-full pointer-events-none"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -249,8 +250,10 @@ export function NametagBadge({
           <path d={strapPaths.right} stroke={strapStroke} strokeWidth="14" fill="none" strokeLinecap="round" />
         </g>
 
+        <HangRings />
+
         <g transform={`translate(${CLIP_X}, 0) rotate(${angleDeg.toFixed(2)})`}>
-          <ClipAndClasp />
+          <MeetClip />
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
@@ -258,18 +261,24 @@ export function NametagBadge({
   );
 }
 
-function ClipAndClasp() {
+function HangRings() {
   return (
-    <>
-      <g transform="translate(0, 10)">
-        <ellipse cx="0" cy="0" rx="12" ry="6" fill="#7886A8" opacity="0.9" />
-        <ellipse cx="0" cy="0" rx="7" ry="3" fill="#F7F6F2" />
+    <g aria-hidden="true">
+      <g transform={`translate(${STRAP_GEO.hangLeft.x}, ${STRAP_GEO.hangLeft.y})`}>
+        <ellipse cx="0" cy="0" rx="7" ry="5" fill="none" stroke="#7886A8" strokeWidth="3" opacity="0.85" />
       </g>
-      <g transform="translate(0, 120)">
-        <rect x="-16" y="-6" width="32" height="12" rx="3" fill="#7886A8" opacity="0.7" />
-        <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#F7F6F2" opacity="0.5" />
+      <g transform={`translate(${STRAP_GEO.hangRight.x}, ${STRAP_GEO.hangRight.y})`}>
+        <ellipse cx="0" cy="0" rx="7" ry="5" fill="none" stroke="#7886A8" strokeWidth="3" opacity="0.85" />
       </g>
-    </>
+    </g>
+  );
+}
+
+function MeetClip() {
+  return (
+    <g transform={`translate(0, ${STRAP_GEO.meetLocal.y})`} aria-hidden="true">
+      <ellipse cx="0" cy="0" rx="10" ry="5" fill="#F7F6F2" stroke="#7886A8" strokeWidth="2.5" />
+    </g>
   );
 }
 
