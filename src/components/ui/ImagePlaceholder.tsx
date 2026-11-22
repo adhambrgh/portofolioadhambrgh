@@ -25,12 +25,10 @@ export function ImagePlaceholder({
   const initials = name ? getInitials(name) : type === "portrait" ? "AB" : "··";
 
   if (type === "nametag") {
+    // tanpa sticky: peran menempel dipegang LanyardRig (fixed) yang mengukur kotak ini tiap scroll
     return (
-      <div
-        className={cn("relative flex flex-col items-center", aspectRatio, className)}
-        {...props}
-      >
-        <NametagBadge name={name} role={role} className="w-full h-full" />
+      <div className={cn("flex flex-col items-center", aspectRatio, className)} {...props}>
+        <NametagBadge name={name} role={role} className="h-full w-full" />
       </div>
     );
   }

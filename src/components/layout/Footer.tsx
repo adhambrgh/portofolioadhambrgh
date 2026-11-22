@@ -40,7 +40,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-card" role="contentinfo">
-      <div className="container-custom py-12 md:py-16">
+      <div className="container-wide py-12 md:py-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-col items-center md:items-start gap-2">
             <p className="font-sans font-medium text-lg text-foreground">

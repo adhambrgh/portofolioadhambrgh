@@ -12,7 +12,8 @@ export default function Home() {
     <>
       <SkipLink />
       <Navigation />
-      <main id="main-content" className="min-h-screen" role="main">
+      {/* stacking root: LanyardRig fixed harus di atas hero, di bawah navbar */}
+      <main id="main-content" className="relative z-40 min-h-screen" role="main">
         <Hero />
         <SelectedWorks />
         <About />

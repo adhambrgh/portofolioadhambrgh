@@ -3,18 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
-import { cn } from "@/lib/utils";
 
 export function Hero() {
+  // grid = stretch: kolom kanan harus setinggi section, satu-satunya induk sticky di rantai badge
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-16 pb-20 md:pb-32 overflow-hidden"
+      className="min-h-screen container-wide grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-28 md:pt-32 pb-20 md:pb-32"
       aria-labelledby="hero-heading"
     >
-      <div className="container-wide relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="flex flex-col justify-center lg:pr-8">
+          <div className="relative z-10 flex flex-col justify-center lg:pr-8">
             <motion.p
               className="section-label"
               initial={{ opacity: 0, y: -20 }}
@@ -73,19 +71,16 @@ export function Hero() {
             </motion.p>
           </div>
 
+          {/* tanpa scale: ancestor ber-transform mematahkan posisi rig fixed */}
           <motion.div
             className="relative lg:pl-8"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="relative -mt-6 md:-mt-8 lg:-mt-10 aspect-[3/4] max-w-md mx-auto lg:max-w-none overflow-visible">
-              <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
-            </div>
-
+            {/* cart label lepas dari badge: tidak ikut sticky, selalu di bawah kolom */}
             <motion.div
-              className="absolute -bottom-8 -right-8 md:-bottom-12 md:-right-12 lg:-bottom-16 lg:-right-20 text-right opacity-60"
+              className="absolute -bottom-8 -right-8 md:-bottom-12 md:-right-12 text-right opacity-60"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 0.6, x: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
@@ -95,9 +90,14 @@ export function Hero() {
                 DESIGN / DEVELOP / CREATE
               </p>
             </motion.div>
+
+            {/* gambar terpotong tinggi sd. kartu, sisa tinggi kolom mentok di sini */}
+            <div className="h-[100svh] max-h-screen overflow-hidden">
+              <div className="max-w-md mx-auto lg:max-w-none pt-8 lg:pt-16">
+                <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
+              </div>
+            </div>
           </motion.div>
-        </div>
-      </div>
 
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block animate-bounce-slow"
