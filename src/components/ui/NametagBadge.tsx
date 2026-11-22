@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { generateStrapPaths, generateStaticStrapPaths, DEFAULT_STRAP_CONFIG } from "@/lib/strapGeometry";
@@ -7,7 +7,7 @@ import { usePendulumPhysics } from "@/hooks/usePendulumPhysics";
 
 const MAX_ANGLE = (35 * Math.PI) / 180;
 const SVG_WIDTH = 300;
-const SVG_HEIGHT = 420;
+const SVG_HEIGHT = 470;
 const SVG_VIEWBOX = `0 -20 ${SVG_WIDTH} ${SVG_HEIGHT}`;
 
 const CLIP_X = 150;
@@ -22,7 +22,6 @@ const STRAP_GEO: StrapGeometryConfig = {
   hangLeft: { x: 124, y: -10 },
   hangRight: { x: 176, y: -10 },
   meetLocal: { x: CLIP_X, y: CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y },
-  cardPivot: { x: CLIP_X, y: -10 },
   chainLen: 245,
   slackFactor: 0.3,
 };
@@ -179,10 +178,6 @@ export function NametagBadge({
             <stop offset="50%" stopColor="#7886A8" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#7886A8" stopOpacity="0.3" />
           </linearGradient>
-          <linearGradient id="cardGradStatic" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="100%" stopColor="#FDFDFB" />
-          </linearGradient>
           <filter id="softShadowStatic" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#20211F" floodOpacity="0.08" />
           </filter>
@@ -236,10 +231,6 @@ export function NametagBadge({
             <stop offset="55%" stopColor="#677699" stopOpacity="0.85" />
             <stop offset="100%" stopColor="#7886A8" stopOpacity="0.55" />
           </linearGradient>
-          <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="100%" stopColor="#FDFDFB" />
-          </linearGradient>
           <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#20211F" floodOpacity="0.08" />
           </filter>
@@ -252,11 +243,8 @@ export function NametagBadge({
 
         <HangRings />
 
-        <g transform={`translate(0, ${MEET_Y})`}>
-          <MeetClip />
-        </g>
-
         <g transform={`translate(0, ${MEET_Y}) rotate(${angleDeg.toFixed(2)})`}>
+          <MeetClip />
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
@@ -285,114 +273,35 @@ function MeetClip() {
   );
 }
 
-function BadgeCardHolder({ name, role }: { name: string; role: string }) {
+function BadgeCardHolder({ name: _name, role: _role }: { name: string; role: string }) {
   return (
-    <g transform="translate(0, 16)">
+    <g>
+      <defs>
+        <clipPath id="badgeCardClip">
+          <rect x="-56" y="-8" width="112" height="190" rx="4" />
+        </clipPath>
+      </defs>
       <rect
-        x="-70"
-        y="-10"
-        width="140"
-        height="160"
-        rx="8"
+        x="-62"
+        y="-46"
+        width="124"
+        height="212"
+        rx="6"
         fill="#FFFFFF"
-        fillOpacity="0.18"
         stroke="#E5E3DC"
         strokeWidth="1.5"
       />
+      <image
+        href="/images/projects/foto.png"
+        x="-56"
+        y="-8"
+        width="112"
+        height="190"
+        preserveAspectRatio="xMidYMid slice"
+        clipPath="url(#badgeCardClip)"
+      />
       <ellipse cx="0" cy="-16" rx="14" ry="6" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1" />
       <ellipse cx="0" cy="-16" rx="8" ry="3" fill="none" />
-      <rect
-        x="-62"
-        y="-4"
-        width="124"
-        height="148"
-        rx="6"
-        fill="url(#cardGrad)"
-        stroke="#E5E3DC"
-        strokeWidth="1"
-      />
-      <rect x="-62" y="-4" width="124" height="3" rx="6" fill="#7886A8" />
-      <line x1="-40" y1="42" x2="40" y2="42" stroke="#E5E3DC" strokeWidth="1" strokeDasharray="4 4" />
-      <text
-        x="0"
-        y="22"
-        textAnchor="middle"
-        fontFamily="Georgia, serif"
-        fontSize="16"
-        fontWeight="500"
-        fill="#20211F"
-        letterSpacing="0.5"
-      >
-        {name}
-      </text>
-      <text
-        x="0"
-        y="56"
-        textAnchor="middle"
-        fontFamily="DM Sans, system-ui, sans-serif"
-        fontSize="10"
-        fontWeight="500"
-        fill="#777873"
-        letterSpacing="0.8"
-      >
-        {role.toUpperCase()}
-      </text>
-      <text
-        x="0"
-        y="72"
-        textAnchor="middle"
-        fontFamily="DM Sans, system-ui, sans-serif"
-        fontSize="8.5"
-        fontWeight="400"
-        fill="#9E9D96"
-        letterSpacing="0.5"
-      >
-        FULL STACK WEB / FLUTTER
-      </text>
-      <g transform="translate(0, 92)">
-        <rect x="-22" y="0" width="44" height="44" rx="4" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="0.5" />
-        <g fill="#777873" opacity="0.4">
-          <rect x="-20" y="2" width="10" height="10" />
-          <rect x="-20" y="2" width="4" height="4" fill="#F7F6F2" />
-          <rect x="10" y="2" width="10" height="10" />
-          <rect x="10" y="2" width="4" height="4" fill="#F7F6F2" />
-          <rect x="-20" y="32" width="10" height="10" />
-          <rect x="-20" y="32" width="4" height="4" fill="#F7F6F2" />
-          <rect x="-10" y="2" width="3" height="3" />
-          <rect x="-5" y="2" width="3" height="3" />
-          <rect x="0" y="2" width="3" height="3" />
-          <rect x="7" y="2" width="3" height="3" />
-          <rect x="-20" y="12" width="3" height="3" />
-          <rect x="-12" y="12" width="3" height="3" />
-          <rect x="-4" y="12" width="3" height="3" />
-          <rect x="4" y="12" width="3" height="3" />
-          <rect x="10" y="12" width="3" height="3" />
-          <rect x="16" y="12" width="3" height="3" />
-          <rect x="-16" y="16" width="3" height="3" />
-          <rect x="-8" y="16" width="3" height="3" />
-          <rect x="0" y="16" width="3" height="3" />
-          <rect x="8" y="16" width="3" height="3" />
-          <rect x="-14" y="20" width="3" height="3" />
-          <rect x="-2" y="20" width="3" height="3" />
-          <rect x="6" y="20" width="3" height="3" />
-          <rect x="14" y="20" width="3" height="3" />
-          <rect x="-18" y="24" width="3" height="3" />
-          <rect x="-6" y="24" width="3" height="3" />
-          <rect x="2" y="24" width="3" height="3" />
-          <rect x="12" y="24" width="3" height="3" />
-        </g>
-        <text
-          x="0"
-          y="50"
-          textAnchor="middle"
-          fontFamily="DM Sans, system-ui, sans-serif"
-          fontSize="5"
-          fontWeight="400"
-          fill="#9E9D96"
-        >
-          SCAN
-        </text>
-      </g>
     </g>
   );
 }

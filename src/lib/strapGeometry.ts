@@ -21,7 +21,7 @@ export const DEFAULT_STRAP_CONFIG: StrapGeometryConfig = {
   hangLeft: { x: 124, y: -10 },
   hangRight: { x: 176, y: -10 },
   meetLocal: { x: 150, y: 204 },
-  cardPivot: { x: 150, y: -10 },
+  cardPivot: { x: 150, y: 204 },
   chainLen: 245,
   slackFactor: 0.3,
 };
