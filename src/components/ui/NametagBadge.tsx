@@ -11,9 +11,9 @@ const SVG_HEIGHT = 420;
 const SVG_VIEWBOX = `0 -20 ${SVG_WIDTH} ${SVG_HEIGHT}`;
 
 const CLIP_X = 150;
-const CLIP_Y = 0;
 const CARD_CENTER_Y = 220;
 const CLIP_HOLE_OFFSET_Y = -16;
+const MEET_Y = CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y;
 const STRAP_LERP = 0.12;
 const DRAG_SENSITIVITY = 0.0035;
 
@@ -22,7 +22,7 @@ const STRAP_GEO: StrapGeometryConfig = {
   hangLeft: { x: 124, y: -10 },
   hangRight: { x: 176, y: -10 },
   meetLocal: { x: CLIP_X, y: CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y },
-  cardPivot: { x: CLIP_X, y: CLIP_Y },
+  cardPivot: { x: CLIP_X, y: -10 },
   chainLen: 245,
   slackFactor: 0.3,
 };
@@ -195,7 +195,7 @@ export function NametagBadge({
 
         <HangRings />
 
-        <g transform="translate(150, 0)">
+        <g transform={`translate(0, ${MEET_Y})`}>
           <MeetClip />
           <BadgeCardHolder name={name} role={role} />
         </g>
@@ -252,8 +252,11 @@ export function NametagBadge({
 
         <HangRings />
 
-        <g transform={`translate(${CLIP_X}, 0) rotate(${angleDeg.toFixed(2)})`}>
+        <g transform={`translate(0, ${MEET_Y})`}>
           <MeetClip />
+        </g>
+
+        <g transform={`translate(0, ${MEET_Y}) rotate(${angleDeg.toFixed(2)})`}>
           <BadgeCardHolder name={name} role={role} />
         </g>
       </svg>
@@ -276,7 +279,7 @@ function HangRings() {
 
 function MeetClip() {
   return (
-    <g transform={`translate(0, ${STRAP_GEO.meetLocal.y})`} aria-hidden="true">
+    <g aria-hidden="true">
       <ellipse cx="0" cy="0" rx="10" ry="5" fill="#F7F6F2" stroke="#7886A8" strokeWidth="2.5" />
     </g>
   );
@@ -284,7 +287,7 @@ function MeetClip() {
 
 function BadgeCardHolder({ name, role }: { name: string; role: string }) {
   return (
-    <g transform="translate(0, 220)">
+    <g transform="translate(0, 16)">
       <rect
         x="-70"
         y="-10"

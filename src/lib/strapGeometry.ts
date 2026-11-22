@@ -21,7 +21,7 @@ export const DEFAULT_STRAP_CONFIG: StrapGeometryConfig = {
   hangLeft: { x: 124, y: -10 },
   hangRight: { x: 176, y: -10 },
   meetLocal: { x: 150, y: 204 },
-  cardPivot: { x: 150, y: 0 },
+  cardPivot: { x: 150, y: -10 },
   chainLen: 245,
   slackFactor: 0.3,
 };
@@ -43,6 +43,11 @@ export function getMeetPoint(
 ): Point {
   const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
   return rotatePoint(cfg.meetLocal, angleRad, cfg.cardPivot);
+}
+
+export function getMeetLocal(config: Partial<StrapGeometryConfig> = {}): Point {
+  const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
+  return cfg.meetLocal;
 }
 
 function springyCurve(hang: Point, end: Point, chainLen: number, slackFactor: number): string {
