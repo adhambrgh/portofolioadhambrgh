@@ -36,7 +36,8 @@ export function Approach() {
     >
       <div className="container-wide">
         <SectionHeader
-          label="03 — MY APPROACH"
+          label="MY APPROACH"
+          id="approach"
           heading="How I build digital products."
         />
 

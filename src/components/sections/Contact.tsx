@@ -58,7 +58,8 @@ export function Contact() {
           className="text-center"
         >
           <SectionHeader
-            label="04 — GET IN TOUCH"
+            label="GET IN TOUCH"
+            id="contact"
             heading="Have something in mind? Let&apos;s create it."
             className="mb-12"
           />

@@ -30,7 +30,8 @@ export function About() {
     >
       <div className="container-wide">
         <SectionHeader
-          label="02 — ABOUT"
+          label="ABOUT"
+          id="about"
           heading="A little about the person behind the code."
         />
 

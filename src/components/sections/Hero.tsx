@@ -13,27 +13,30 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
           <div className="relative z-10 flex flex-col justify-start pt-8 lg:pt-16 lg:pr-8">
-            <motion.p
-              className="section-label"
+            {/* header baris: index + label + hairline, membaca seperti kepala spec sheet */}
+            <motion.div
+              className="flex items-center gap-4"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              HELLO, I&apos;M ADHAM
-            </motion.p>
+              <span className="section-label">HELLO, I&apos;M ADHAM</span>
+              <span className="h-px flex-1 bg-border" aria-hidden="true" />
+            </motion.div>
 
             <motion.h1
               id="hero-heading"
-              className="section-heading mt-4 md:mt-6 max-w-xl text-balance"
+              className="section-heading mt-6 max-w-xl text-balance leading-[1.05]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
             >
-              Building digital experiences with purpose.
+              Building digital experiences with{" "}
+              <em className="italic text-accent">purpose.</em>
             </motion.h1>
 
             <motion.p
-              className="mt-6 md:mt-8 text-lg md:text-xl text-secondary leading-relaxed max-w-lg"
+              className="mt-6 md:mt-8 text-base md:text-lg text-secondary leading-relaxed max-w-[28rem]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
@@ -41,11 +44,42 @@ export function Hero() {
               I&apos;m a Full Stack Web & Flutter Developer who enjoys turning ideas into thoughtful, functional, and user-friendly digital products.
             </motion.p>
 
+            {/* meta spec: label/value, mengisi data pemilik badge di kolom kanan */}
+            <dl className="mt-10 border-t border-border pt-6 grid gap-y-3">
+              {[
+                { label: "ROLE", value: "Full Stack / Flutter" },
+                { label: "BASE", value: "Indonesia" },
+                { label: "STATUS", value: "Open to work", dot: true },
+              ].map((row, i) => (
+                <motion.div
+                  key={row.label}
+                  className="grid grid-cols-[5.5rem_1fr] items-baseline gap-4"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 + i * 0.05 }}
+                >
+                  <dt className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-muted">
+                    {row.label}
+                  </dt>
+                  <dd className="text-sm font-medium text-foreground">
+                    {row.dot ? (
+                      <span className="inline-flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                        {row.value}
+                      </span>
+                    ) : (
+                      row.value
+                    )}
+                  </dd>
+                </motion.div>
+              ))}
+            </dl>
+
             <motion.div
-              className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-4"
+              className="mt-10 flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.55 }}
             >
               <Link
                 href="#selected-works"
@@ -60,15 +94,6 @@ export function Hero() {
                 Get in Touch
               </Link>
             </motion.div>
-
-            <motion.p
-              className="mt-8 md:mt-12 text-sm text-muted"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-            >
-              Based in Indonesia.
-            </motion.p>
           </div>
 
           {/* tanpa scale: ancestor ber-transform mematahkan posisi rig fixed */}

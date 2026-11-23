@@ -38,7 +38,8 @@ export function SelectedWorks() {
     >
       <div className="container-wide">
         <SectionHeader
-          label="01 — SELECTED WORK"
+          label="SELECTED WORK"
+          id="selected-works"
           heading="Some things I&apos;ve built."
         />
 
