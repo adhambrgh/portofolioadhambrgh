@@ -1,10 +1,3 @@
-export interface SocialLink {
-  label: string;
-  href: string;
-  icon: string;
-  ariaLabel: string;
-}
-
 export interface TechTag {
   name: string;
   category: "frontend" | "backend" | "mobile" | "database" | "tools";
@@ -27,14 +20,4 @@ export interface Project {
   liveUrl?: string;
   featured: boolean;
   order: number;
-}
-
-export interface NavItem {
-  label: string;
-  href: string;
-}
-
-export interface AvailabilityStatus {
-  text: string;
-  isAvailable: boolean;
 }

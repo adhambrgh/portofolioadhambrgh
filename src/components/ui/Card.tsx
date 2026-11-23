@@ -35,24 +35,6 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = "Card";
 
-export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-}
-
-export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
-  ({ className, children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("px-6 py-4 border-b border-border", className)}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-);
-
-CardHeader.displayName = "CardHeader";
-
 export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }

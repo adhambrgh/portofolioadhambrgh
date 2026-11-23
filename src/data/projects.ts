@@ -41,5 +41,3 @@ export const projects: Project[] = [
     order: 3,
   },
 ];
-
-export const featuredProjects = projects.filter((p) => p.featured).sort((a, b) => a.order - b.order);

@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     description: "Building digital experiences with purpose.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Adham Baarigh Portfolio",
@@ -68,13 +68,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Adham Baarigh — Full Stack Web & Flutter Developer",
     description: "Building digital experiences with purpose.",
-    images: ["/og-image.png"],
+    images: ["/og-image.svg"],
     creator: "@adhambrgh",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.svg",
   },
   manifest: "/site.webmanifest",
   verification: {

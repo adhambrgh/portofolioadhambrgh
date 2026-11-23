@@ -13,20 +13,22 @@ import { useLanyardDrag } from "@/hooks/useLanyardDrag";
 
 export const SVG_WIDTH = 300;
 /** Tinggi viewBox. Skala = min(w/300, h/SVG_HEIGHT); kotak pemakai harus aspect-[1/2] supaya kartu tetap sebesar dulu. */
-export const SVG_HEIGHT = 1120;
+export const SVG_HEIGHT = 1140;
 /** Rongga di luar viewBox: tali bermula sedikit di atas titik gantung supaya tidak terlihat terpotong. Nilai negatif juga memperpanjang pita. */
-const VIEWBOX_TOP = -20;
+const VIEWBOX_TOP = -40;
 const SVG_VIEWBOX = `0 ${VIEWBOX_TOP} ${SVG_WIDTH} ${SVG_HEIGHT}`;
 
 const CLIP_X = 150;
 const CARD_CENTER_Y = 220;
-const CLIP_HOLE_OFFSET_Y = -22;
+const CLIP_HOLE_OFFSET_Y = -18;
 const MEET_Y = CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y;
 /** Panjang tali diukur di rotasi 0; sisakan slack supaya tali tetap melengkung saat ditarik jauh. */
 const STRAP_REACH = 900;
 const STRAP_LERP = 0.35;
 /** Batas geser kartu dari posisi diam, dalam unit SVG. */
 const CARD_TRAVEL = 340;
+/** Geser card turun dari ujung tali, tanpa mengubah panjang atau bentuk tali. */
+const CARD_OFFSET_Y = 70;
 
 export const STRAP_GEO: StrapGeometryConfig = {
   ...DEFAULT_STRAP_CONFIG,
@@ -182,7 +184,7 @@ export function LanyardRig({
         >
           <LanyardDefs shadowId="softShadowStatic" fillId="lanyardFillStatic" />
           <Lanyard paths={staticPaths} meet={staticMeet} shadowId="softShadowStatic" fillId="lanyardFillStatic" />
-          <g transform={`translate(${CLIP_X}, ${MEET_Y})`}>
+          <g transform={`translate(${CLIP_X}, ${MEET_Y + CARD_OFFSET_Y})`}>
             <MeetClip />
             <BadgeCardHolder />
           </g>
@@ -224,7 +226,7 @@ export function LanyardRig({
       >
         <LanyardDefs shadowId="softShadow" fillId="lanyardFill" />
         <Lanyard paths={strapPaths} mid={strapMid} meet={meet} shadowId="softShadow" fillId="lanyardFill" />
-        <g transform={`translate(${meet.x}, ${meet.y}) rotate(${angleDeg.toFixed(2)})`}>
+        <g transform={`translate(${meet.x}, ${meet.y + CARD_OFFSET_Y}) rotate(${angleDeg.toFixed(2)})`}>
           <MeetClip />
           <BadgeCardHolder />
         </g>
@@ -341,20 +343,20 @@ function BadgeCardHolder() {
     <g>
       <defs>
         <clipPath id="badgeCardClip">
-          <rect x="-88" y="-13" width="176" height="304" rx="5" />
+          <rect x="-89" y="-14" width="178" height="306" rx="8" />
         </clipPath>
       </defs>
       <rect x="-96" y="-61" width="192" height="365" rx="8" fill="#FFFFFF" stroke="#E5E3DC" strokeWidth="2" />
       <image
         href="/images/projects/foto.png"
-        x="-88"
-        y="-13"
-        width="176"
-        height="304"
-        preserveAspectRatio="xMidYMid slice"
+        x="-89"
+        y="-14"
+        width="178"
+        height="306"
+        preserveAspectRatio="xMidYMin slice"
         clipPath="url(#badgeCardClip)"
       />
-      <ellipse cx="0" cy="-22" rx="21" ry="9" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1.2" />
+      <ellipse cx="0" cy="-18" rx="21" ry="9" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1.2" />
     </g>
   );
 }

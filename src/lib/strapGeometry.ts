@@ -48,11 +48,6 @@ export function getMeetPoint(
   return rotatePoint(cfg.meetLocal, angleRad, cfg.cardPivot);
 }
 
-export function getMeetLocal(config: Partial<StrapGeometryConfig> = {}): Point {
-  const cfg = { ...DEFAULT_STRAP_CONFIG, ...config };
-  return cfg.meetLocal;
-}
-
 interface Quad {
   p0: Point; // ujung atas
   c: Point; // kontrol

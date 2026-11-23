@@ -93,8 +93,8 @@ export function Hero() {
 
             {/* gambar terpotong tinggi sd. kartu; di lg diberi ruang lebih supaya kartu bisa besar.
                 overflow-visible: kartu yang ditarik keluar kolom tidak boleh terpotong */}
-            <div className="h-auto lg:h-[140svh] overflow-visible">
-              <div className="max-w-md mx-auto lg:max-w-lg pt-8 lg:-mt-20">
+            <div className="h-auto lg:h-[135svh] overflow-visible">
+              <div className="max-w-md mx-auto lg:max-w-md pt-8 lg:-mt-20">
                 <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
               </div>
             </div>

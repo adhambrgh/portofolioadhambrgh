@@ -46,3 +46,8 @@ ehthumbs.db
 Desktop.ini
 # graphify
 graphify-out/
+
+# referensi desain & debug lokal
+references/
+*.log
+shot-*.png
