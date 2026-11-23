@@ -1,0 +1,2060 @@
+npm notice run portofolio@0.1.0 npx
+npm notice run next dev
+  ▲ Next.js 14.2.15
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 12.4s (1086 modules)
+ GET / 200 in 13134ms
+ ✓ Compiled in 931ms (540 modules)
+ GET / 200 in 84ms
+ GET / 200 in 50ms
+ GET / 200 in 76ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 686ms (1057 modules)
+ GET /favicon-192x192.png 404 in 879ms
+ ✓ Compiled in 674ms (1068 modules)
+ ✓ Compiled /_not-found in 226ms (1057 modules)
+ GET /favicon-192x192.png 404 in 338ms
+ ✓ Compiled in 377ms (1071 modules)
+ ✓ Compiled in 426ms (1071 modules)
+ ✓ Compiled in 1111ms (1068 modules)
+ ⨯ ./src/components/ui/NametagBadge.tsx
+Error: 
+  [31mx[0m Expected ',', got '}'
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\NametagBadge.tsx[0m:304:1]
+ [2m304[0m |       <ellipse cx="0" cy="-16" rx="14" ry="6" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1" />
+ [2m305[0m |       <ellipse cx="0" cy="-16" rx="8" ry="3" fill="none" />
+ [2m306[0m |     </g>
+ [2m307[0m | }
+     : [31;1m^[0m
+ [2m308[0m | 
+ [2m309[0m | function useReducedMotion(): boolean {
+ [2m309[0m |   const [prefersReduced, setPrefersReduced] = useState(false);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⨯ ./src/components/ui/NametagBadge.tsx
+Error: 
+  [31mx[0m Expected ',', got '}'
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\NametagBadge.tsx[0m:303:1]
+ [2m303[0m |       <ellipse cx="0" cy="-16" rx="14" ry="6" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1" />
+ [2m304[0m |       <ellipse cx="0" cy="-16" rx="8" ry="3" fill="none" />
+ [2m305[0m |     </g>
+ [2m306[0m | }
+     : [31;1m^[0m
+ [2m307[0m | 
+ [2m308[0m | function useReducedMotion(): boolean {
+ [2m308[0m |   const [prefersReduced, setPrefersReduced] = useState(false);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 403ms (1068 modules)
+ GET / 200 in 231ms
+ GET / 200 in 75ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1074ms (1071 modules)
+ GET /favicon-192x192.png 404 in 178ms
+ GET / 200 in 197ms
+ GET /_next/static/css/app/layout.css?v=1795327827704 404 in 89ms
+ GET /_next/static/chunks/main-app.js?v=1795327827704 404 in 105ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 104ms
+ GET /_next/static/chunks/app/page.js 404 in 103ms
+ GET /favicon-192x192.png 404 in 62ms
+ GET / 200 in 95ms
+ GET /_next/static/css/app/layout.css?v=1795327830627 404 in 67ms
+ GET /_next/static/chunks/main-app.js?v=1795327830627 404 in 84ms
+ GET /_next/static/chunks/app/page.js 404 in 80ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 83ms
+ GET /favicon-192x192.png 404 in 65ms
+ GET / 200 in 75ms
+ GET /_next/static/css/app/layout.css?v=1795327845313 404 in 45ms
+ GET /_next/static/chunks/main-app.js?v=1795327845313 404 in 59ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 52ms
+ GET /_next/static/chunks/app/page.js 404 in 51ms
+ GET /favicon-192x192.png 404 in 34ms
+ ✓ Compiled in 803ms (1068 modules)
+ GET / 200 in 392ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 560ms (1057 modules)
+ GET /_next/static/css/app/layout.css?v=1795328237330 404 in 753ms
+ GET /_next/static/chunks/main-app.js?v=1795328237330 404 in 737ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 730ms
+ GET /favicon-192x192.png 404 in 61ms
+ GET / 200 in 327ms
+ GET / 200 in 71ms
+ ✓ Compiled in 956ms (1068 modules)
+ ✓ Compiled in 481ms (1068 modules)
+ GET / 200 in 357ms
+ GET / 200 in 82ms
+ ✓ Compiled /_not-found in 500ms (1057 modules)
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ○ Compiling /_error ...
+ GET / 200 in 1150ms
+ ✓ Compiled /_error in 3.8s (1283 modules)
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ GET /_next/static/chunks/main-app.js?v=1795339118012 500 in 3194ms
+ GET /_next/static/css/app/layout.css?v=1795339118012 500 in 3197ms
+ GET /_next/static/chunks/app-pages-internals.js 500 in 3196ms
+ GET /_next/static/chunks/app/page.js 500 in 3155ms
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ GET /favicon-192x192.png 500 in 86ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development-fallback\0.pack.gz'
+ GET / 200 in 421ms
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ GET /_next/static/css/app/layout.css?v=1795339144467 500 in 69ms
+ GET /_next/static/chunks/main-app.js?v=1795339144467 500 in 83ms
+ GET /_next/static/chunks/app-pages-internals.js 500 in 81ms
+ GET /_next/static/chunks/app/page.js 500 in 80ms
+ ⨯ Error: Cannot find module './597.js'
+Require stack:
+- C:\laragon\www\portofolio\.next\server\webpack-runtime.js
+- C:\laragon\www\portofolio\.next\server\app\_not-found\page.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\require.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js
+- C:\laragon\www\portofolio\node_modules\next\dist\build\utils.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:198:28)
+    at C:\laragon\www\portofolio\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\laragon\www\portofolio\.next\server\webpack-runtime.js:162:22)
+    at C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4943
+    at Object.<anonymous> (C:\laragon\www\portofolio\.next\server\app\_not-found\page.js:1:4984)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\laragon\www\portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\laragon\www\portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\next-server.js:709:36)
+    at async DevServer.findPageComponents (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2074:30)
+    at async pipe.req.req (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:2040:30)
+    at async DevServer.pipeImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\base-server.js:921:25)
+    at async C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\laragon\www\portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:173:21)
+    at async handleRequest (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:365:24)
+    at async requestHandlerImpl (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\router-server.js:374:13)
+    at async Server.requestListener (C:\laragon\www\portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\laragon\\www\\portofolio\\.next\\server\\webpack-runtime.js',
+    'C:\\laragon\\www\\portofolio\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\laragon\\www\\portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ GET /favicon-192x192.png 500 in 22ms
+ ✓ Compiled in 1396ms (1292 modules)
+ ✓ Compiled in 535ms (1278 modules)
+ ✓ Compiled in 617ms (1278 modules)
+ ✓ Compiled in 653ms (1278 modules)
+ ✓ Compiled in 365ms (1278 modules)
+ ✓ Compiled in 607ms (1278 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\9.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\9.pack.gz'
+ ✓ Compiled in 408ms (1278 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 640ms (1278 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 757ms (1292 modules)
+ ✓ Compiled in 632ms (1292 modules)
+ ✓ Compiled in 617ms (1292 modules)
+ ✓ Compiled in 700ms (1292 modules)
+ ✓ Compiled in 590ms (1292 modules)
+ ✓ Compiled in 673ms (1292 modules)
+ ✓ Compiled in 562ms (1278 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz'
+ ✓ Compiled in 507ms (1278 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: invalid stored block lengths
+ ✓ Compiled in 943ms (1292 modules)
+ ✓ Compiled in 1022ms (1292 modules)
+ ✓ Compiled in 572ms (1292 modules)
+ ✓ Compiled in 641ms (1292 modules)
+ ✓ Compiled in 461ms (1278 modules)
+ ✓ Compiled in 574ms (1292 modules)
+ ✓ Compiled in 638ms (1292 modules)
+ GET / 200 in 393ms
+ GET / 200 in 78ms
+ GET / 200 in 65ms
+ ✓ Compiled in 738ms (1292 modules)
+ ✓ Compiled in 833ms (1292 modules)
+ ✓ Compiled in 787ms (1292 modules)
+ ✓ Compiled in 812ms (1292 modules)
+ GET / 200 in 287ms
+ ✓ Compiled in 764ms (1292 modules)
+ ✓ Compiled in 625ms (1292 modules)
+ ✓ Compiled in 588ms (1292 modules)
+ ✓ Compiled in 505ms (1292 modules)
+ ✓ Compiled in 574ms (1292 modules)
+ ✓ Compiled in 523ms (1292 modules)
+ ✓ Compiled in 513ms (1292 modules)
+ ✓ Compiled in 487ms (1292 modules)
+ ✓ Compiled in 551ms (1292 modules)
+ ✓ Compiled in 422ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 1149ms (1292 modules)
+ ✓ Compiled in 554ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+ GET / 200 in 538ms
+ ✓ Compiled in 779ms (1292 modules)
+ ✓ Compiled in 837ms (1292 modules)
+ ✓ Compiled in 912ms (1292 modules)
+ GET / 200 in 279ms
+ ✓ Compiled in 3.3s (1292 modules)
+ ✓ Compiled in 879ms (1292 modules)
+ ✓ Compiled in 712ms (1292 modules)
+ ✓ Compiled in 767ms (1292 modules)
+ ✓ Compiled in 720ms (1292 modules)
+ ✓ Compiled in 1165ms (1292 modules)
+ ✓ Compiled in 737ms (1292 modules)
+ ✓ Compiled in 545ms (1292 modules)
+ ✓ Compiled in 603ms (1292 modules)
+ ✓ Compiled in 543ms (1292 modules)
+ ✓ Compiled in 537ms (1292 modules)
+ ✓ Compiled in 1155ms (1292 modules)
+ ✓ Compiled in 1220ms (1292 modules)
+ ✓ Compiled in 1248ms (1292 modules)
+ ✓ Compiled in 1198ms (1292 modules)
+ ✓ Compiled in 620ms (1292 modules)
+ ✓ Compiled in 568ms (1292 modules)
+ ✓ Compiled in 835ms (1292 modules)
+ ✓ Compiled in 952ms (1292 modules)
+ ✓ Compiled in 587ms (1292 modules)
+ ✓ Compiled in 671ms (1292 modules)
+ ✓ Compiled in 648ms (1292 modules)
+ ✓ Compiled in 433ms (1278 modules)
+ ✓ Compiled in 498ms (1278 modules)
+ ✓ Compiled in 399ms (1278 modules)
+ ✓ Compiled in 353ms (1278 modules)
+ ✓ Compiled in 2.4s (1292 modules)
+ ✓ Compiled in 607ms (1292 modules)
+ ✓ Compiled in 667ms (1292 modules)
+ ✓ Compiled in 770ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\7.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\7.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz'
+ ✓ Compiled in 1022ms (1292 modules)
+ ✓ Compiled in 754ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 776ms (1292 modules)
+ ✓ Compiled in 844ms (1292 modules)
+ ⨯ ./src/components/ui/NametagBadge.tsx
+Error: 
+  [31mx[0m Unexpected token `g`. Expected jsx identifier
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\NametagBadge.tsx[0m:283:1]
+ [2m283[0m |   const toStrap = (p: Point) => rotatePoint(p, -cardAngle * (Math.PI / 180), meet);
+ [2m284[0m |   const rad = (cardAngle * Math.PI) / 180;
+ [2m285[0m |   return (
+ [2m286[0m |     <g aria-hidden="true">
+     : [31;1m     ^[0m
+ [2m287[0m |       {/* seluruh lanyard ikut ruang card: unrotate ke ruang tali supaya card menempel rapi di clip */}
+ [2m288[0m |       <g transform={`rotate(${(-cardAngle).toFixed(2)} ${meet.x.toFixed(2)} ${meet.y.toFixed(2)})`}>
+ [2m289[0m |         {/* bar penghubung di belakang leher */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 793ms (1292 modules)
+ ✓ Compiled in 701ms (1292 modules)
+ ⨯ ./src/components/ui/NametagBadge.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\NametagBadge.tsx[0m:198:1]
+ [2m198[0m |   const angleDeg = (Math.atan2(-CLIP_X, MEET_Y - STRAP_GEO.hangLeft.y) * 180) / Math.PI + (lanyard.rotation * 180) / Math.PI;
+ [2m199[0m | 
+ [2m200[0m |   return (
+ [2m201[0m |     <div
+     : [31;1m     ^^^[0m
+ [2m202[0m |       className={`w-full h-full relative overflow-visible cursor-grab active:cursor-grabbing touch-none select-none outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm ${className || ""}`}
+ [2m203[0m |       style={{
+ [2m204[0m |         // div ber-height h-full; ikat ke atas lalu turunkan setinggi rongga viewBox atas
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 907ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 1405ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz'
+ ✓ Compiled in 1365ms (1292 modules)
+ ✓ Compiled in 704ms (1292 modules)
+ ✓ Compiled in 719ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 657ms (1292 modules)
+ ✓ Compiled in 616ms (1292 modules)
+ ✓ Compiled in 701ms (1292 modules)
+ ✓ Compiled in 505ms (1292 modules)
+ ✓ Compiled in 867ms (1292 modules)
+ ✓ Compiled in 897ms (1292 modules)
+ ✓ Compiled in 882ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\1.pack.gz'
+ ✓ Compiled in 758ms (1292 modules)
+ ✓ Compiled in 564ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 786ms (1278 modules)
+ ✓ Compiled in 753ms (1292 modules)
+ ✓ Compiled in 508ms (1292 modules)
+ ✓ Compiled in 693ms (1292 modules)
+ ✓ Compiled in 678ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ GET / 200 in 437ms
+ GET / 200 in 78ms
+ ⨯ ./src/components/ui/ImagePlaceholder.tsx
+Error: 
+  [31mx[0m Expected ',', got 'className'
+    ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\ImagePlaceholder.tsx[0m:27:1]
+ [2m27[0m |   if (type === "nametag") {
+ [2m28[0m |     return (
+ [2m29[0m |       {/* sticky + top-16: ujung atas tali selalu duduk di bawah h-16 navbar, tidak perlu skrip ukur */}
+ [2m30[0m |       <div className={cn("sticky top-16 flex flex-col items-center", aspectRatio, className)} {...props}>
+    : [31;1m           ^^^^^^^^^[0m
+ [2m31[0m |         <NametagBadge name={name} role={role} className="h-full w-auto min-w-full" />
+ [2m32[0m |       </div>
+ [2m33[0m |     );
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 536ms (1292 modules)
+ ✓ Compiled in 586ms (1292 modules)
+ ✓ Compiled in 698ms (1292 modules)
+ ⨯ ./src/components/sections/Hero.tsx
+Error: 
+  [31mx[0m Unexpected token `section`. Expected jsx identifier
+    ,-[[36;1;4mC:\laragon\www\portofolio\src\components\sections\Hero.tsx[0m:8:1]
+ [2m 8[0m | export function Hero() {
+ [2m 9[0m |   // grid = stretch: kolom kanan harus setinggi section, satu-satunya induk sticky di rantai badge
+ [2m10[0m |   return (
+ [2m11[0m |     <section
+    : [31;1m     ^^^^^^^[0m
+ [2m12[0m |       id="hero"
+ [2m13[0m |       className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start container-wide pt-28 md:pt-32 pb-20 md:pb-32"
+ [2m14[0m |       aria-labelledby="hero-heading"
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/sections/Hero.tsx
+./src/app/page.tsx
+ ✓ Compiled in 917ms (1292 modules)
+ ✓ Compiled in 563ms (1292 modules)
+ ✓ Compiled in 765ms (1292 modules)
+ GET / 200 in 366ms
+ ✓ Compiled /_not-found in 318ms (1281 modules)
+ GET /favicon-192x192.png 404 in 451ms
+ GET /favicon-16x16.png 404 in 448ms
+ ✓ Compiled in 550ms (1295 modules)
+ ✓ Compiled in 757ms (1292 modules)
+ ✓ Compiled in 1082ms (1292 modules)
+ GET / 200 in 268ms
+ ✓ Compiled /_not-found in 250ms (1281 modules)
+ GET /favicon-16x16.png 404 in 344ms
+ GET /favicon-192x192.png 404 in 348ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /_next/static/webpack/9f6a21ac05c1ce2a.webpack.hot-update.json 404 in 49ms
+ GET / 200 in 139ms
+ GET /favicon-192x192.png 404 in 44ms
+ GET / 200 in 116ms
+ GET /favicon-16x16.png 404 in 40ms
+ GET /favicon-192x192.png 404 in 47ms
+ GET / 200 in 82ms
+ GET /favicon-192x192.png 404 in 47ms
+ GET /favicon-16x16.png 404 in 44ms
+ ✓ Compiled in 995ms (1292 modules)
+ ✓ Compiled in 614ms (1292 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\2.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\2.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz'
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⚠ ./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+
+./src/components/ui/NametagBadge.tsx
+Attempted import error: 'tapeMidpoint' is not exported from '@/lib/strapGeometry' (imported as 'tapeMidpoint').
+
+Import trace for requested module:
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 767ms (1294 modules)
+ ✓ Compiled in 478ms (1294 modules)
+ ✓ Compiled in 649ms (1294 modules)
+ ✓ Compiled in 757ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 619ms (1294 modules)
+ ✓ Compiled in 429ms (1294 modules)
+ ✓ Compiled in 509ms (1294 modules)
+ ✓ Compiled in 405ms (1294 modules)
+ ✓ Compiled in 704ms (1294 modules)
+ ✓ Compiled in 840ms (1294 modules)
+ ✓ Compiled in 566ms (1294 modules)
+ ✓ Compiled in 691ms (1294 modules)
+ ✓ Compiled in 517ms (1294 modules)
+ ✓ Compiled in 800ms (1294 modules)
+ ⨯ ./src/components/ui/LanyardRig.tsx
+Error: 
+  [31mx[0m the name `scale` is defined multiple times
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:124:1]
+ [2m124[0m | 
+ [2m125[0m |   if (!measure || !viewport) return null;
+ [2m126[0m | 
+ [2m127[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+     : [31;1m        ^^|^^[0m
+     :           [31;1m`-- [31;1mprevious definition of `scale` here[0m[0m
+ [2m128[0m |   // titik gantung dipaku tepat di bawah header, hanya X yang mengikuti kolom kanan
+ [2m129[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+ [2m130[0m |   const originY = navBottom + STRAP_GAP - scale * (VIEWBOX_TOP + 10);
+ [2m131[0m | 
+ [2m132[0m |   const halfView = viewport.width / 2 / scale;
+ [2m133[0m |   const clampX = (v: number) =>
+ [2m134[0m |     Math.max(-halfView + CARD_EDGE_KEEP, Math.min(halfView - CARD_EDGE_KEEP, v));
+ [2m135[0m |   const clampY = (v: number) => {
+ [2m136[0m |     const minY = -(MEET_Y - CARD_EDGE_KEEP);
+ [2m137[0m |     const maxY = (viewport.height - originY) / scale - CARD_DROP - CARD_EDGE_KEEP;
+ [2m138[0m |     return Math.max(minY, Math.min(maxY, v));
+ [2m139[0m |   };
+ [2m140[0m | 
+ [2m141[0m |   useEffect(() => {
+ [2m142[0m |     strapLagRef.current = { x: 0, y: 0 };
+ [2m143[0m |   }, [prefersReducedMotion]);
+ [2m144[0m | 
+ [2m145[0m |   // lag tali: mulai setiap target bergerak, berhenti sendiri saat konvergen
+ [2m146[0m |   useEffect(() => {
+ [2m147[0m |     if (prefersReducedMotion || lagRafRef.current !== null) return;
+ [2m148[0m |     lagRafRef.current = requestAnimationFrame(function tick() {
+ [2m149[0m |       const t = target.current;
+ [2m150[0m |       const lag = strapLagRef.current;
+ [2m151[0m |       const lerp = isPointerDownRef.current ? 0.5 : STRAP_LERP;
+ [2m152[0m |       lag.x += (t.x - lag.x) * lerp;
+ [2m153[0m |       lag.y += (t.y - lag.y) * lerp;
+ [2m154[0m |       const done = Math.abs(t.x - lag.x) < 0.3 && Math.abs(t.y - lag.y) < 0.3 && !isPointerDownRef.current;
+ [2m155[0m |       if (done) {
+ [2m156[0m |         lag.x = t.x;
+ [2m157[0m |         lag.y = t.y;
+ [2m158[0m |       }
+ [2m159[0m |       lagRafRef.current = done ? null : requestAnimationFrame(tick);
+ [2m160[0m |       setStrapTick((n) => n + 1);
+ [2m161[0m |     });
+ [2m162[0m |     return () => {
+ [2m163[0m |       if (lagRafRef.current !== null) {
+ [2m164[0m |         cancelAnimationFrame(lagRafRef.current);
+ [2m165[0m |         lagRafRef.current = null;
+ [2m166[0m |       }
+ [2m167[0m |     };
+ [2m168[0m |   }, [lanyard.x, lanyard.y, prefersReducedMotion]);
+ [2m169[0m | 
+ [2m170[0m |   const handlePointerDown = (e: React.PointerEvent) => {
+ [2m171[0m |     if (e.button !== undefined && e.button !== 0 && e.pointerType === "mouse") return;
+ [2m172[0m |     try {
+ [2m173[0m |       e.currentTarget.setPointerCapture(e.pointerId);
+ [2m174[0m |     } catch {
+ [2m175[0m |       /* ignore capture errors */
+ [2m176[0m |     }
+ [2m177[0m |     isPointerDownRef.current = true;
+ [2m178[0m |     setIsPointerDown(true);
+ [2m179[0m |     startPointerRef.current = { x: e.clientX, y: e.clientY };
+ [2m180[0m |     startOffsetRef.current = { x: lanyard.x, y: lanyard.y };
+ [2m181[0m |     lanyard.setDragging(true);
+ [2m182[0m |   };
+ [2m183[0m | 
+ [2m184[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+ [2m185[0m |     if (!isPointerDownRef.current) return;
+ [2m186[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m187[0m |     const scale = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+ [2m188[0m |     const dx = (e.clientX - startPointerRef.current.x) / scale;
+ [2m189[0m |     const dy = (e.clientY - startPointerRef.current.y) / scale;
+ [2m190[0m |     lanyard.dragTo(clampX(startOffsetRef.current.x + dx), clampY(startOffsetRef.current.y + dy));
+ [2m191[0m |   };
+ [2m192[0m | 
+ [2m193[0m |   const handlePointerUp = (e: React.PointerEvent) => {
+ [2m194[0m |     if (!isPointerDownRef.current) return;
+ [2m195[0m |     lanyard.dragTo(clampX(lanyard.x), clampY(lanyard.y));
+ [2m196[0m |     isPointerDownRef.current = false;
+ [2m197[0m |     setIsPointerDown(false);
+ [2m198[0m |     try {
+ [2m199[0m |       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+ [2m200[0m |         e.currentTarget.releasePointerCapture(e.pointerId);
+ [2m201[0m |       }
+ [2m202[0m |     } catch {
+ [2m203[0m |       /* ignore */
+ [2m204[0m |     }
+ [2m205[0m |     lanyard.setDragging(false);
+ [2m206[0m |   };
+ [2m207[0m | 
+ [2m208[0m |   const handleClick = () => {
+ [2m209[0m |     if (!lanyard.isDragging) lanyard.impulse(60);
+ [2m210[0m |   };
+ [2m211[0m | 
+ [2m212[0m |   const handleKeyDown = (e: React.KeyboardEvent) => {
+ [2m213[0m |     if (e.key === "Enter" || e.key === " ") {
+ [2m214[0m |       e.preventDefault();
+ [2m215[0m |       handleClick();
+ [2m216[0m |     }
+ [2m217[0m |   };
+ [2m218[0m | 
+ [2m219[0m |   if (!measure) return null;
+ [2m220[0m | 
+ [2m221[0m |   // skala & offset supaya viewBox SVG fixed jatuh tepat di atas kotak badge
+ [2m222[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+     : [33;1m        ^^|^^[0m
+     :           [33;1m`-- [33;1m`scale` redefined here[0m[0m
+ [2m223[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+ [2m224[0m |   const originY = Math.max(navBottom - scale * (VIEWBOX_TOP + 10), measure.top);
+     `----
+
+  [31mx[0m the name `originX` is defined multiple times
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:126:1]
+ [2m126[0m | 
+ [2m127[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+ [2m128[0m |   // titik gantung dipaku tepat di bawah header, hanya X yang mengikuti kolom kanan
+ [2m129[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+     : [31;1m        ^^^|^^^[0m
+     :            [31;1m`-- [31;1mprevious definition of `originX` here[0m[0m
+ [2m130[0m |   const originY = navBottom + STRAP_GAP - scale * (VIEWBOX_TOP + 10);
+ [2m131[0m | 
+ [2m132[0m |   const halfView = viewport.width / 2 / scale;
+ [2m133[0m |   const clampX = (v: number) =>
+ [2m134[0m |     Math.max(-halfView + CARD_EDGE_KEEP, Math.min(halfView - CARD_EDGE_KEEP, v));
+ [2m135[0m |   const clampY = (v: number) => {
+ [2m136[0m |     const minY = -(MEET_Y - CARD_EDGE_KEEP);
+ [2m137[0m |     const maxY = (viewport.height - originY) / scale - CARD_DROP - CARD_EDGE_KEEP;
+ [2m138[0m |     return Math.max(minY, Math.min(maxY, v));
+ [2m139[0m |   };
+ [2m140[0m | 
+ [2m141[0m |   useEffect(() => {
+ [2m142[0m |     strapLagRef.current = { x: 0, y: 0 };
+ [2m143[0m |   }, [prefersReducedMotion]);
+ [2m144[0m | 
+ [2m145[0m |   // lag tali: mulai setiap target bergerak, berhenti sendiri saat konvergen
+ [2m146[0m |   useEffect(() => {
+ [2m147[0m |     if (prefersReducedMotion || lagRafRef.current !== null) return;
+ [2m148[0m |     lagRafRef.current = requestAnimationFrame(function tick() {
+ [2m149[0m |       const t = target.current;
+ [2m150[0m |       const lag = strapLagRef.current;
+ [2m151[0m |       const lerp = isPointerDownRef.current ? 0.5 : STRAP_LERP;
+ [2m152[0m |       lag.x += (t.x - lag.x) * lerp;
+ [2m153[0m |       lag.y += (t.y - lag.y) * lerp;
+ [2m154[0m |       const done = Math.abs(t.x - lag.x) < 0.3 && Math.abs(t.y - lag.y) < 0.3 && !isPointerDownRef.current;
+ [2m155[0m |       if (done) {
+ [2m156[0m |         lag.x = t.x;
+ [2m157[0m |         lag.y = t.y;
+ [2m158[0m |       }
+ [2m159[0m |       lagRafRef.current = done ? null : requestAnimationFrame(tick);
+ [2m160[0m |       setStrapTick((n) => n + 1);
+ [2m161[0m |     });
+ [2m162[0m |     return () => {
+ [2m163[0m |       if (lagRafRef.current !== null) {
+ [2m164[0m |         cancelAnimationFrame(lagRafRef.current);
+ [2m165[0m |         lagRafRef.current = null;
+ [2m166[0m |       }
+ [2m167[0m |     };
+ [2m168[0m |   }, [lanyard.x, lanyard.y, prefersReducedMotion]);
+ [2m169[0m | 
+ [2m170[0m |   const handlePointerDown = (e: React.PointerEvent) => {
+ [2m171[0m |     if (e.button !== undefined && e.button !== 0 && e.pointerType === "mouse") return;
+ [2m172[0m |     try {
+ [2m173[0m |       e.currentTarget.setPointerCapture(e.pointerId);
+ [2m174[0m |     } catch {
+ [2m175[0m |       /* ignore capture errors */
+ [2m176[0m |     }
+ [2m177[0m |     isPointerDownRef.current = true;
+ [2m178[0m |     setIsPointerDown(true);
+ [2m179[0m |     startPointerRef.current = { x: e.clientX, y: e.clientY };
+ [2m180[0m |     startOffsetRef.current = { x: lanyard.x, y: lanyard.y };
+ [2m181[0m |     lanyard.setDragging(true);
+ [2m182[0m |   };
+ [2m183[0m | 
+ [2m184[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+ [2m185[0m |     if (!isPointerDownRef.current) return;
+ [2m186[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m187[0m |     const scale = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+ [2m188[0m |     const dx = (e.clientX - startPointerRef.current.x) / scale;
+ [2m189[0m |     const dy = (e.clientY - startPointerRef.current.y) / scale;
+ [2m190[0m |     lanyard.dragTo(clampX(startOffsetRef.current.x + dx), clampY(startOffsetRef.current.y + dy));
+ [2m191[0m |   };
+ [2m192[0m | 
+ [2m193[0m |   const handlePointerUp = (e: React.PointerEvent) => {
+ [2m194[0m |     if (!isPointerDownRef.current) return;
+ [2m195[0m |     lanyard.dragTo(clampX(lanyard.x), clampY(lanyard.y));
+ [2m196[0m |     isPointerDownRef.current = false;
+ [2m197[0m |     setIsPointerDown(false);
+ [2m198[0m |     try {
+ [2m199[0m |       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+ [2m200[0m |         e.currentTarget.releasePointerCapture(e.pointerId);
+ [2m201[0m |       }
+ [2m202[0m |     } catch {
+ [2m203[0m |       /* ignore */
+ [2m204[0m |     }
+ [2m205[0m |     lanyard.setDragging(false);
+ [2m206[0m |   };
+ [2m207[0m | 
+ [2m208[0m |   const handleClick = () => {
+ [2m209[0m |     if (!lanyard.isDragging) lanyard.impulse(60);
+ [2m210[0m |   };
+ [2m211[0m | 
+ [2m212[0m |   const handleKeyDown = (e: React.KeyboardEvent) => {
+ [2m213[0m |     if (e.key === "Enter" || e.key === " ") {
+ [2m214[0m |       e.preventDefault();
+ [2m215[0m |       handleClick();
+ [2m216[0m |     }
+ [2m217[0m |   };
+ [2m218[0m | 
+ [2m219[0m |   if (!measure) return null;
+ [2m220[0m | 
+ [2m221[0m |   // skala & offset supaya viewBox SVG fixed jatuh tepat di atas kotak badge
+ [2m222[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+ [2m223[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+     : [33;1m        ^^^|^^^[0m
+     :            [33;1m`-- [33;1m`originX` redefined here[0m[0m
+ [2m224[0m |   const originY = Math.max(navBottom - scale * (VIEWBOX_TOP + 10), measure.top);
+ [2m225[0m | 
+ [2m226[0m |   if (prefersReducedMotion) {
+     `----
+
+  [31mx[0m the name `originY` is defined multiple times
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:127:1]
+ [2m127[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+ [2m128[0m |   // titik gantung dipaku tepat di bawah header, hanya X yang mengikuti kolom kanan
+ [2m129[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+ [2m130[0m |   const originY = navBottom + STRAP_GAP - scale * (VIEWBOX_TOP + 10);
+     : [31;1m        ^^^|^^^[0m
+     :            [31;1m`-- [31;1mprevious definition of `originY` here[0m[0m
+ [2m131[0m | 
+ [2m132[0m |   const halfView = viewport.width / 2 / scale;
+ [2m133[0m |   const clampX = (v: number) =>
+ [2m134[0m |     Math.max(-halfView + CARD_EDGE_KEEP, Math.min(halfView - CARD_EDGE_KEEP, v));
+ [2m135[0m |   const clampY = (v: number) => {
+ [2m136[0m |     const minY = -(MEET_Y - CARD_EDGE_KEEP);
+ [2m137[0m |     const maxY = (viewport.height - originY) / scale - CARD_DROP - CARD_EDGE_KEEP;
+ [2m138[0m |     return Math.max(minY, Math.min(maxY, v));
+ [2m139[0m |   };
+ [2m140[0m | 
+ [2m141[0m |   useEffect(() => {
+ [2m142[0m |     strapLagRef.current = { x: 0, y: 0 };
+ [2m143[0m |   }, [prefersReducedMotion]);
+ [2m144[0m | 
+ [2m145[0m |   // lag tali: mulai setiap target bergerak, berhenti sendiri saat konvergen
+ [2m146[0m |   useEffect(() => {
+ [2m147[0m |     if (prefersReducedMotion || lagRafRef.current !== null) return;
+ [2m148[0m |     lagRafRef.current = requestAnimationFrame(function tick() {
+ [2m149[0m |       const t = target.current;
+ [2m150[0m |       const lag = strapLagRef.current;
+ [2m151[0m |       const lerp = isPointerDownRef.current ? 0.5 : STRAP_LERP;
+ [2m152[0m |       lag.x += (t.x - lag.x) * lerp;
+ [2m153[0m |       lag.y += (t.y - lag.y) * lerp;
+ [2m154[0m |       const done = Math.abs(t.x - lag.x) < 0.3 && Math.abs(t.y - lag.y) < 0.3 && !isPointerDownRef.current;
+ [2m155[0m |       if (done) {
+ [2m156[0m |         lag.x = t.x;
+ [2m157[0m |         lag.y = t.y;
+ [2m158[0m |       }
+ [2m159[0m |       lagRafRef.current = done ? null : requestAnimationFrame(tick);
+ [2m160[0m |       setStrapTick((n) => n + 1);
+ [2m161[0m |     });
+ [2m162[0m |     return () => {
+ [2m163[0m |       if (lagRafRef.current !== null) {
+ [2m164[0m |         cancelAnimationFrame(lagRafRef.current);
+ [2m165[0m |         lagRafRef.current = null;
+ [2m166[0m |       }
+ [2m167[0m |     };
+ [2m168[0m |   }, [lanyard.x, lanyard.y, prefersReducedMotion]);
+ [2m169[0m | 
+ [2m170[0m |   const handlePointerDown = (e: React.PointerEvent) => {
+ [2m171[0m |     if (e.button !== undefined && e.button !== 0 && e.pointerType === "mouse") return;
+ [2m172[0m |     try {
+ [2m173[0m |       e.currentTarget.setPointerCapture(e.pointerId);
+ [2m174[0m |     } catch {
+ [2m175[0m |       /* ignore capture errors */
+ [2m176[0m |     }
+ [2m177[0m |     isPointerDownRef.current = true;
+ [2m178[0m |     setIsPointerDown(true);
+ [2m179[0m |     startPointerRef.current = { x: e.clientX, y: e.clientY };
+ [2m180[0m |     startOffsetRef.current = { x: lanyard.x, y: lanyard.y };
+ [2m181[0m |     lanyard.setDragging(true);
+ [2m182[0m |   };
+ [2m183[0m | 
+ [2m184[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+ [2m185[0m |     if (!isPointerDownRef.current) return;
+ [2m186[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m187[0m |     const scale = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+ [2m188[0m |     const dx = (e.clientX - startPointerRef.current.x) / scale;
+ [2m189[0m |     const dy = (e.clientY - startPointerRef.current.y) / scale;
+ [2m190[0m |     lanyard.dragTo(clampX(startOffsetRef.current.x + dx), clampY(startOffsetRef.current.y + dy));
+ [2m191[0m |   };
+ [2m192[0m | 
+ [2m193[0m |   const handlePointerUp = (e: React.PointerEvent) => {
+ [2m194[0m |     if (!isPointerDownRef.current) return;
+ [2m195[0m |     lanyard.dragTo(clampX(lanyard.x), clampY(lanyard.y));
+ [2m196[0m |     isPointerDownRef.current = false;
+ [2m197[0m |     setIsPointerDown(false);
+ [2m198[0m |     try {
+ [2m199[0m |       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+ [2m200[0m |         e.currentTarget.releasePointerCapture(e.pointerId);
+ [2m201[0m |       }
+ [2m202[0m |     } catch {
+ [2m203[0m |       /* ignore */
+ [2m204[0m |     }
+ [2m205[0m |     lanyard.setDragging(false);
+ [2m206[0m |   };
+ [2m207[0m | 
+ [2m208[0m |   const handleClick = () => {
+ [2m209[0m |     if (!lanyard.isDragging) lanyard.impulse(60);
+ [2m210[0m |   };
+ [2m211[0m | 
+ [2m212[0m |   const handleKeyDown = (e: React.KeyboardEvent) => {
+ [2m213[0m |     if (e.key === "Enter" || e.key === " ") {
+ [2m214[0m |       e.preventDefault();
+ [2m215[0m |       handleClick();
+ [2m216[0m |     }
+ [2m217[0m |   };
+ [2m218[0m | 
+ [2m219[0m |   if (!measure) return null;
+ [2m220[0m | 
+ [2m221[0m |   // skala & offset supaya viewBox SVG fixed jatuh tepat di atas kotak badge
+ [2m222[0m |   const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
+ [2m223[0m |   const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
+ [2m224[0m |   const originY = Math.max(navBottom - scale * (VIEWBOX_TOP + 10), measure.top);
+     : [33;1m        ^^^|^^^[0m
+     :            [33;1m`-- [33;1m`originY` redefined here[0m[0m
+ [2m225[0m | 
+ [2m226[0m |   if (prefersReducedMotion) {
+ [2m227[0m |     const staticPaths = generateStaticStrapPaths(STRAP_GEO);
+     `----
+
+Import trace for requested module:
+./src/components/ui/LanyardRig.tsx
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\4.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\4.pack.gz'
+ ✓ Compiled in 469ms (1294 modules)
+ ⨯ ./src/components/ui/LanyardRig.tsx
+Error: 
+  [31mx[0m Expected ',', got 'function'
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:287:1]
+ [2m287[0m |   );
+ [2m288[0m | }
+ [2m289[0m | 
+ [2m290[0m | function LanyardDefs({ shadowId, fillId }: { shadowId: string; fillId: string }) {
+     : [31;1m^^^^^^^^[0m
+ [2m291[0m |   return (
+ [2m292[0m |     <defs>
+ [2m293[0m |       <linearGradient id={fillId} x1="0%" y1="0%" x2="0%" y2="100%">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/ui/LanyardRig.tsx
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 664ms (1294 modules)
+ ⨯ ./src/components/ui/LanyardRig.tsx
+Error: 
+  [31mx[0m the name `handlePointerMove` is defined multiple times
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:161:1]
+ [2m161[0m |     lanyard.setDragging(true);
+ [2m162[0m |   };
+ [2m163[0m | 
+ [2m164[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+     : [31;1m        ^^^^^^^^|^^^^^^^^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `handlePointerMove` here[0m[0m
+ [2m165[0m |     if (!isPointerDownRef.current) return;
+ [2m166[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m167[0m |     const scale = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+ [2m168[0m |     const dx = (e.clientX - startPointerRef.current.x) / scale;
+ [2m169[0m |     const dy = (e.clientY - startPointerRef.current.y) / scale;
+ [2m170[0m |     lanyard.dragTo(clampX(startOffsetRef.current.x + dx), clampY(startOffsetRef.current.y + dy));
+ [2m171[0m |   };
+ [2m172[0m | 
+ [2m173[0m |   const handlePointerUp = (e: React.PointerEvent) => {
+ [2m174[0m |     if (!isPointerDownRef.current) return;
+ [2m175[0m |     lanyard.dragTo(clampX(lanyard.x), clampY(lanyard.y));
+ [2m176[0m |     isPointerDownRef.current = false;
+ [2m177[0m |     setIsPointerDown(false);
+ [2m178[0m |     try {
+ [2m179[0m |       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+ [2m180[0m |         e.currentTarget.releasePointerCapture(e.pointerId);
+ [2m181[0m |       }
+ [2m182[0m |     } catch {
+ [2m183[0m |       /* ignore */
+ [2m184[0m |     }
+ [2m185[0m |     lanyard.setDragging(false);
+ [2m186[0m |   };
+ [2m187[0m | 
+ [2m188[0m |   const handleClick = () => {
+ [2m189[0m |     if (!lanyard.isDragging) lanyard.impulse(60);
+ [2m190[0m |   };
+ [2m191[0m | 
+ [2m192[0m |   const handleKeyDown = (e: React.KeyboardEvent) => {
+ [2m193[0m |     if (e.key === "Enter" || e.key === " ") {
+ [2m194[0m |       e.preventDefault();
+ [2m195[0m |       handleClick();
+ [2m196[0m |     }
+ [2m197[0m |   };
+ [2m198[0m | 
+ [2m199[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+     : [33;1m        ^^^^^^^^|^^^^^^^^[0m
+     :                 [33;1m`-- [33;1m`handlePointerMove` redefined here[0m[0m
+ [2m200[0m |     if (!isPointerDownRef.current) return;
+ [2m201[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m202[0m |     const s = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+     `----
+
+Import trace for requested module:
+./src/components/ui/LanyardRig.tsx
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ⨯ ./src/components/ui/LanyardRig.tsx
+Error: 
+  [31mx[0m the name `handlePointerMove` is defined multiple times
+     ,-[[36;1;4mC:\laragon\www\portofolio\src\components\ui\LanyardRig.tsx[0m:161:1]
+ [2m161[0m |     lanyard.setDragging(true);
+ [2m162[0m |   };
+ [2m163[0m | 
+ [2m164[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+     : [31;1m        ^^^^^^^^|^^^^^^^^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `handlePointerMove` here[0m[0m
+ [2m165[0m |     if (!isPointerDownRef.current) return;
+ [2m166[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m167[0m |     const s = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+ [2m168[0m |     const dx = (e.clientX - startPointerRef.current.x) / s;
+ [2m169[0m |     const dy = (e.clientY - startPointerRef.current.y) / s;
+ [2m170[0m |     lanyard.dragTo(clampX(startOffsetRef.current.x + dx), clampY(startOffsetRef.current.y + dy));
+ [2m171[0m |   };
+ [2m172[0m | 
+ [2m173[0m |   const handlePointerUp = (e: React.PointerEvent) => {
+ [2m174[0m |     if (!isPointerDownRef.current) return;
+ [2m175[0m |     lanyard.dragTo(clampX(lanyard.x), clampY(lanyard.y));
+ [2m176[0m |     isPointerDownRef.current = false;
+ [2m177[0m |     setIsPointerDown(false);
+ [2m178[0m |     try {
+ [2m179[0m |       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+ [2m180[0m |         e.currentTarget.releasePointerCapture(e.pointerId);
+ [2m181[0m |       }
+ [2m182[0m |     } catch {
+ [2m183[0m |       /* ignore */
+ [2m184[0m |     }
+ [2m185[0m |     lanyard.setDragging(false);
+ [2m186[0m |   };
+ [2m187[0m | 
+ [2m188[0m |   const handleClick = () => {
+ [2m189[0m |     if (!lanyard.isDragging) lanyard.impulse(60);
+ [2m190[0m |   };
+ [2m191[0m | 
+ [2m192[0m |   const handleKeyDown = (e: React.KeyboardEvent) => {
+ [2m193[0m |     if (e.key === "Enter" || e.key === " ") {
+ [2m194[0m |       e.preventDefault();
+ [2m195[0m |       handleClick();
+ [2m196[0m |     }
+ [2m197[0m |   };
+ [2m198[0m | 
+ [2m199[0m |   const handlePointerMove = (e: React.PointerEvent) => {
+     : [33;1m        ^^^^^^^^|^^^^^^^^[0m
+     :                 [33;1m`-- [33;1m`handlePointerMove` redefined here[0m[0m
+ [2m200[0m |     if (!isPointerDownRef.current) return;
+ [2m201[0m |     const rect = svgRef.current?.getBoundingClientRect();
+ [2m202[0m |     const s = rect ? Math.min(rect.width / SVG_WIDTH, rect.height / SVG_HEIGHT) || 1 : 1;
+     `----
+
+Import trace for requested module:
+./src/components/ui/LanyardRig.tsx
+./src/components/ui/NametagBadge.tsx
+./src/components/ui/ImagePlaceholder.tsx
+./src/components/sections/Hero.tsx
+ ✓ Compiled in 630ms (1294 modules)
+ ✓ Compiled in 726ms (1294 modules)
+ ✓ Compiled in 444ms (1294 modules)
+ ✓ Compiled in 645ms (1294 modules)
+ ✓ Compiled in 593ms (1294 modules)
+ ✓ Compiled in 440ms (1294 modules)
+ ✓ Compiled in 579ms (1294 modules)
+ ✓ Compiled in 812ms (1294 modules)
+ ✓ Compiled in 841ms (1294 modules)
+ ✓ Compiled in 818ms (1294 modules)
+ ✓ Compiled in 654ms (1294 modules)
+ ✓ Compiled in 874ms (1294 modules)
+ ✓ Compiled in 616ms (1294 modules)
+ ✓ Compiled in 673ms (1294 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 579ms (1283 modules)
+ GET /admin 404 in 802ms
+ GET /favicon-192x192.png 404 in 43ms
+ GET / 200 in 267ms
+ ✓ Compiled in 782ms (1294 modules)
+ ✓ Compiled in 786ms (1294 modules)
+ ✓ Compiled in 1191ms (1294 modules)
+ ✓ Compiled in 1056ms (1294 modules)
+ ✓ Compiled in 803ms (1294 modules)
+ ✓ Compiled in 856ms (1294 modules)
+ ✓ Compiled in 763ms (1294 modules)
+ ✓ Compiled in 568ms (1294 modules)
+ ✓ Compiled in 608ms (1294 modules)
+ ✓ Compiled in 853ms (1294 modules)
+ ✓ Compiled in 223ms (725 modules)
+ ✓ Compiled in 522ms (1294 modules)
+ ✓ Compiled in 557ms (1294 modules)
+ ✓ Compiled in 427ms (1294 modules)
+ ✓ Compiled in 581ms (1294 modules)
+ ✓ Compiled in 512ms (1294 modules)
+ ✓ Compiled in 463ms (1294 modules)
+ ✓ Compiled in 484ms (1294 modules)
+ ✓ Compiled in 469ms (1294 modules)
+ ✓ Compiled in 1073ms (1294 modules)
+ ✓ Compiled in 432ms (1294 modules)
+ ✓ Compiled in 609ms (1294 modules)
+ ✓ Compiled in 505ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\1.pack.gz'
+ ✓ Compiled in 555ms (1294 modules)
+ ✓ Compiled in 561ms (1294 modules)
+ ✓ Compiled in 596ms (1294 modules)
+ ✓ Compiled in 1291ms (1294 modules)
+ ✓ Compiled in 553ms (1294 modules)
+ ✓ Compiled in 675ms (1294 modules)
+ ✓ Compiled in 699ms (1294 modules)
+ ✓ Compiled in 651ms (1294 modules)
+ ✓ Compiled in 479ms (1294 modules)
+ ✓ Compiled in 537ms (1294 modules)
+ ✓ Compiled in 482ms (1294 modules)
+ ✓ Compiled in 1034ms (1294 modules)
+ ✓ Compiled in 1186ms (1294 modules)
+ ✓ Compiled in 830ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 667ms (1294 modules)
+ ✓ Compiled in 599ms (1294 modules)
+ ✓ Compiled in 638ms (1294 modules)
+ ✓ Compiled in 483ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 1024ms (1294 modules)
+ ✓ Compiled in 452ms (1294 modules)
+ ✓ Compiled in 592ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 2s (1294 modules)
+ ✓ Compiled in 631ms (1294 modules)
+ ✓ Compiled in 729ms (1294 modules)
+ ✓ Compiled in 807ms (1294 modules)
+ ✓ Compiled in 583ms (1294 modules)
+ ✓ Compiled in 771ms (1294 modules)
+ ✓ Compiled in 847ms (1294 modules)
+ ✓ Compiled in 689ms (1294 modules)
+ ✓ Compiled in 635ms (1294 modules)
+ ✓ Compiled in 725ms (1294 modules)
+ ✓ Compiled in 823ms (1294 modules)
+ ✓ Compiled in 692ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\2.pack.gz'
+ ✓ Compiled in 707ms (1294 modules)
+ ✓ Compiled in 454ms (1294 modules)
+ ✓ Compiled in 512ms (1294 modules)
+ ✓ Compiled in 581ms (1294 modules)
+ ✓ Compiled in 1752ms (1294 modules)
+ ✓ Compiled in 1082ms (1294 modules)
+ ✓ Compiled in 1415ms (1294 modules)
+ ✓ Compiled in 997ms (1294 modules)
+ ✓ Compiled in 634ms (1294 modules)
+ ✓ Compiled in 732ms (1294 modules)
+ ✓ Compiled in 751ms (1294 modules)
+ ✓ Compiled in 812ms (1294 modules)
+ ✓ Compiled in 283ms (725 modules)
+ ✓ Compiled in 1333ms (1294 modules)
+ ✓ Compiled in 807ms (1294 modules)
+ ✓ Compiled in 499ms (1294 modules)
+ ✓ Compiled in 477ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\4.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\4.pack.gz'
+ ✓ Compiled in 5.2s (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from C:\laragon\www\portofolio\.next\cache\webpack\server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 782ms (1294 modules)
+ ✓ Compiled in 515ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from C:\laragon\www\portofolio\.next\cache\webpack\server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 3.1s (1294 modules)
+ ✓ Compiled in 467ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 551ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 2.7s (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'

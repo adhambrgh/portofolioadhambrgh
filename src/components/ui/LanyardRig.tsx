@@ -24,14 +24,8 @@ const MEET_Y = CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y;
 /** Panjang tali diukur di rotasi 0; sisakan slack supaya tali tetap melengkung saat ditarik jauh. */
 const STRAP_REACH = 900;
 const STRAP_LERP = 0.35;
-/** Jarak tipis antara garis bawah header dan ujung atas pita. */
-const STRAP_GAP = 4;
-/** Jarak ujung atas pita ke bawah navbar. */
-const STRAP_TOP_OFFSET = 56;
-
-const CARD_DROP = 240;
-/** Sisa kartu yang wajib masih terlihat di layar. */
-const CARD_EDGE_KEEP = 40;
+/** Batas geser kartu dari posisi diam, dalam unit SVG. */
+const CARD_TRAVEL = 260;
 
 export const STRAP_GEO: StrapGeometryConfig = {
   ...DEFAULT_STRAP_CONFIG,
@@ -46,33 +40,18 @@ export const STRAP_GEO: StrapGeometryConfig = {
 const TAPE_TEXT = "SOFTWARE ENGINEER";
 const TAPE_TEXT_STEPS = [0.18, 0.42, 0.66];
 
-interface Measure {
-  left: number;
-  width: number;
-  height: number;
-}
-
-interface Viewport {
-  width: number;
-  height: number;
-}
-
 /**
- * Tali dirender fixed selebar viewport supaya ujung atasnya benar-benar menempel ke navbar
- * saat halaman di-scroll; posisinya diturunkan tiap frame dari kotak badge yang di-sticky.
+ * Tali + kartu digambar langsung di kolom hero (bukan fixed), jadi ikut halaman saat scroll
+ * dan tidak menimpa section lain. Skala diserahkan ke viewBox.
  */
 export function LanyardRig({
   name,
   role,
-  badgeRef,
-  navBottom,
   prefersReducedMotion,
   className,
 }: {
   name: string;
   role: string;
-  badgeRef: React.RefObject<HTMLDivElement | null>;
-  navBottom: number;
   prefersReducedMotion: boolean;
   onTap?: () => void;
   className?: string;
@@ -82,8 +61,6 @@ export function LanyardRig({
     prefersReducedMotion
   );
 
-  const [measure, setMeasure] = useState<Measure | null>(null);
-  const [viewport, setViewport] = useState<Viewport | null>(null);
   const [isPointerDown, setIsPointerDown] = useState(false);
   const isPointerDownRef = useRef(false);
   const startPointerRef = useRef({ x: 0, y: 0 });
@@ -94,27 +71,6 @@ export function LanyardRig({
   const [, setStrapTick] = useState(0);
   const target = useRef({ x: 0, y: 0 });
   target.current = { x: lanyard.x, y: lanyard.y };
-
-  // kotak badge diukur sekali (bukan tiap scroll): tali harus diam di bawah header, tidak ikut turun.
-  // resize tetap ikut karena skala viewBox berubah; posisi vertikal tidak diambil dari posisi badge.
-  useEffect(() => {
-    const el = badgeRef.current;
-    if (!el) return;
-    const sync = () => {
-      const r = el.getBoundingClientRect();
-      // disimpan sebagai posisi viewport: x stabil terhadap scroll, y tidak dipakai sama sekali.
-      // scroll didengar hanya untuk lebar viewport (scrollbar), BUKAN supaya rig ikut turun.
-      setMeasure({ left: r.left, width: r.width, height: r.height });
-      setViewport({ width: window.innerWidth, height: window.innerHeight });
-    };
-    sync();
-    window.addEventListener("resize", sync);
-    window.addEventListener("scroll", sync, { passive: true });
-    return () => {
-      window.removeEventListener("resize", sync);
-      window.removeEventListener("scroll", sync);
-    };
-  }, [badgeRef]);
 
   // lag tali: mulai setiap target bergerak, berhenti sendiri saat konvergen
   useEffect(() => {
@@ -159,8 +115,7 @@ export function LanyardRig({
     if (!isPointerDownRef.current) return;
     // target = kursor; titik pegang kartu harus berakhir di bawah kursor
     const g = grabRef.current;
-    const lx = (e.clientX - originX) / scale;
-    const ly = (e.clientY - originY) / scale;
+    const { x: lx, y: ly } = toLocal(e.clientX, e.clientY);
     lanyard.dragTo(clampX(lx - g.x - CLIP_X), clampY(ly - g.y - MEET_Y));
   };
 
@@ -190,23 +145,14 @@ export function LanyardRig({
     }
   };
 
-  if (!measure || !viewport) return null;
+  const clampX = (v: number) => Math.max(-CARD_TRAVEL, Math.min(CARD_TRAVEL, v));
+  const clampY = (v: number) => Math.max(-CARD_TRAVEL, Math.min(CARD_TRAVEL, v));
 
-  const scale = Math.min(measure.width / SVG_WIDTH, measure.height / SVG_HEIGHT) || 1;
-  // titik gantung dikunci di bawah navbar. X cukup untuk mount; kolom kanan tidak bergerak horizontal.
-  const originX = measure.left + (measure.width - SVG_WIDTH * scale) / 2;
-  // ujung atas pita = navBottom + STRAP_GAP + STRAP_TOP_OFFSET (tetap, tidak ikut scroll)
-  const originY = navBottom + STRAP_GAP + STRAP_TOP_OFFSET - scale * (VIEWBOX_TOP + 10);
-
-  // bebas ditarik: batasnya viewport, bukan kotak kolom. Kartu selalu sisa CARD_EDGE_KEEP di layar.
-  // geseran dinyatakan relatif posisi diam (SVG_WIDTH/2), jadi rentang setengah lebar layar.
-  const halfView = viewport.width / 2 / scale;
-  const clampX = (v: number) =>
-    Math.max(-halfView + CARD_EDGE_KEEP, Math.min(halfView - CARD_EDGE_KEEP, v));
-  const clampY = (v: number) => {
-    const minY = -(MEET_Y - CARD_EDGE_KEEP);
-    const maxY = (navBottom + viewport.height - originY) / scale - CARD_DROP - CARD_EDGE_KEEP;
-    return Math.max(minY, Math.min(maxY, v));
+  /** Kursor layar → koordinat SVG lokal. Rect diambil saat dipakai, jadi aman ikut scroll. */
+  const toLocal = (clientX: number, clientY: number): Point => {
+    const r = svgRef.current?.getBoundingClientRect();
+    const s = r ? Math.min(r.width / SVG_WIDTH, r.height / SVG_HEIGHT) || 1 : 1;
+    return { x: (clientX - (r?.left ?? 0)) / s, y: (clientY - (r?.top ?? 0)) / s };
   };
 
   /**
@@ -215,8 +161,7 @@ export function LanyardRig({
    * bawah kartu → bagian bawah ikut kursor, tarik atas → atas yang ikut.
    */
   const grabLocal = (clientX: number, clientY: number): Point => {
-    const lx = (clientX - originX) / scale;
-    const ly = (clientY - originY) / scale;
+    const { x: lx, y: ly } = toLocal(clientX, clientY);
     return {
       x: lx - (CLIP_X + clampX(lanyard.x)),
       y: ly - (MEET_Y + clampY(lanyard.y)),
@@ -227,20 +172,12 @@ export function LanyardRig({
     const staticPaths = generateStaticStrapPaths(STRAP_GEO);
     const staticMeet = { x: CLIP_X, y: MEET_Y };
     return (
-      <div
-        className={`fixed inset-0 pointer-events-none overflow-hidden ${className || ""}`}
-        aria-hidden="true"
-      >
+      <div className={`relative w-full h-full pointer-events-none ${className || ""}`} aria-hidden="true">
         <svg
-          width={SVG_WIDTH * scale}
-          height={SVG_HEIGHT * scale}
           viewBox={SVG_VIEWBOX}
-          style={{
-            position: "absolute",
-            left: originX,
-            top: originY,
-            overflow: "visible",
-          }}
+          preserveAspectRatio="xMidYMin meet"
+          className="absolute inset-0 w-full h-full"
+          style={{ overflow: "visible" }}
         >
           <LanyardDefs shadowId="softShadowStatic" fillId="lanyardFillStatic" />
           <Lanyard paths={staticPaths} meet={staticMeet} shadowId="softShadowStatic" fillId="lanyardFillStatic" />
@@ -264,16 +201,15 @@ export function LanyardRig({
 
   return (
     <div
-      className={`fixed inset-0 pointer-events-none overflow-hidden ${className || ""}`}
+      className={`relative w-full h-full pointer-events-none ${className || ""}`}
       data-dragging={isPointerDown}
     >
       <svg
         ref={svgRef}
-        width={SVG_WIDTH * scale}
-        height={SVG_HEIGHT * scale}
         viewBox={SVG_VIEWBOX}
-        style={{ position: "absolute", left: originX, top: originY, overflow: "visible" }}
-        className="pointer-events-auto cursor-grab active:cursor-grabbing touch-none select-none outline-none focus-visible:[box-shadow:none]"
+        preserveAspectRatio="xMidYMin meet"
+        className="absolute inset-0 w-full h-full pointer-events-auto cursor-grab active:cursor-grabbing touch-none select-none outline-none focus-visible:[box-shadow:none]"
+        style={{ overflow: "visible" }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -407,7 +343,7 @@ function BadgeCardHolder() {
           <rect x="-76" y="-12" width="152" height="258" rx="5" />
         </clipPath>
       </defs>
-      <rect x="-84" y="-60" width="168" height="288" rx="8" fill="#FFFFFF" stroke="#E5E3DC" strokeWidth="2" />
+      <rect x="-84" y="-60" width="168" height="312" rx="8" fill="#FFFFFF" stroke="#E5E3DC" strokeWidth="2" />
       <image
         href="/images/projects/foto.png"
         x="-76"
