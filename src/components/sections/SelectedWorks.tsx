@@ -33,7 +33,7 @@ export function SelectedWorks() {
   return (
     <section
       id="selected-works"
-      className="section-padding bg-background"
+      className="section-padding pt-10 md:pt-16 bg-background"
       aria-labelledby="selected-works-heading"
     >
       <div className="container-wide">

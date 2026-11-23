@@ -60,7 +60,7 @@ export function LanyardRig({
   className?: string;
 }) {
   const lanyard = useLanyardDrag(
-    { stiffness: 1.5, damping: 1.8, mass: 1, tiltPerPx: 0.0012, maxTilt: 0.5 },
+    { stiffness: 1.5, damping: 1.8, mass: 1, tiltPerPx: 0.0012, maxTilt: 0.5, idleSway: 26 },
     prefersReducedMotion
   );
 

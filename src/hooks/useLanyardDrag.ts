@@ -8,6 +8,8 @@ export interface LanyardConfig {
   mass: number;
   tiltPerPx: number; // rad rotasi card per px simpangan horizontal
   maxTilt: number;
+  /** Amplitudo ayunan saat diam, unit sama dengan x. 0 = kartu diam total. */
+  idleSway: number;
 }
 
 export interface LanyardReturn {
@@ -27,7 +29,13 @@ const DEFAULT_CONFIG: LanyardConfig = {
   mass: 1,
   tiltPerPx: 0.0012,
   maxTilt: 0.6,
+  idleSway: 0,
 };
+
+/** Kecepatan sudut titik diam saat mengayun, rad/detik. 0.9 = satu ayunan penuh ~7 detik. */
+const IDLE_OMEGA = 0.9;
+/** Naiknya kartu di ujung ayunan, fraksi dari amplitudo. Kecil: bandul nyata hampir datar. */
+const IDLE_RISE = 0.25;
 
 export function useLanyardDrag(
   config: Partial<LanyardConfig> = {},
@@ -46,6 +54,7 @@ export function useLanyardDrag(
   const rafRef = useRef<number | null>(null);
   const lastTimeRef = useRef(0);
   const lastMoveRef = useRef(0);
+  const idleTimeRef = useRef(0);
   const reducedRef = useRef(prefersReducedMotion);
   reducedRef.current = prefersReducedMotion;
 
@@ -72,11 +81,18 @@ export function useLanyardDrag(
 
     const p = posRef.current;
     const v = velRef.current;
-    v.x += ((-c.stiffness * p.x - c.damping * v.x) / c.mass) * dt;
-    v.y += ((-c.stiffness * p.y - c.damping * v.y) / c.mass) * dt;
+    // saat diam, titik gantung ikut bergerak pelan; pegas mengejar titik itu
+    const sway = c.idleSway;
+    if (sway > 0) idleTimeRef.current += dt;
+    const wt = idleTimeRef.current * IDLE_OMEGA;
+    const restX = sway > 0 ? sway * Math.sin(wt) : 0;
+    // bandul naik sedikit di kedua ujung ayunan: y = -A*k*(1-cos 2wt)/2
+    const restY = sway > 0 ? (-sway * IDLE_RISE * (1 - Math.cos(2 * wt))) / 2 : 0;
+    v.x += ((-c.stiffness * (p.x - restX) - c.damping * v.x) / c.mass) * dt;
+    v.y += ((-c.stiffness * (p.y - restY) - c.damping * v.y) / c.mass) * dt;
     const next = { x: p.x + v.x * dt, y: p.y + v.y * dt };
 
-    if (Math.abs(next.x) < 0.3 && Math.abs(next.y) < 0.3 && Math.hypot(v.x, v.y) < 0.6) {
+    if (sway === 0 && Math.abs(next.x) < 0.3 && Math.abs(next.y) < 0.3 && Math.hypot(v.x, v.y) < 0.6) {
       apply({ x: 0, y: 0 });
       velRef.current = { x: 0, y: 0 };
       rafRef.current = null;
@@ -151,9 +167,17 @@ export function useLanyardDrag(
 
   useEffect(() => {
     return () => {
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      // wajib null: StrictMode unmount/remount, ref stale bikin startRaf menolak jalan
+      stopRaf();
     };
-  }, []);
+  }, [stopRaf]);
+
+  // kartu mengayun sendiri saat diam; drag menahan loop, lepas drag melanjutkan
+  const idleSway = cfg.idleSway;
+  useEffect(() => {
+    if (idleSway <= 0 || reducedRef.current) return;
+    startRaf();
+  }, [idleSway, startRaf]);
 
   const tilt = Math.max(-cfg.maxTilt, Math.min(cfg.maxTilt, pos.x * cfg.tiltPerPx));
 
