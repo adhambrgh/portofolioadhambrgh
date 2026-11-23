@@ -12,8 +12,9 @@ import type { StrapGeometryConfig, Point } from "@/lib/strapGeometry";
 import { useLanyardDrag } from "@/hooks/useLanyardDrag";
 
 export const SVG_WIDTH = 300;
-export const SVG_HEIGHT = 470;
-/** Rongga di luar viewBox: tali bermula sedikit di atas titik gantung supaya tidak terlihat terpotong. */
+/** Tinggi viewBox. Skala = min(w/300, h/SVG_HEIGHT); kotak pemakai harus aspect-[1/2] supaya kartu tetap sebesar dulu. */
+export const SVG_HEIGHT = 1120;
+/** Rongga di luar viewBox: tali bermula sedikit di atas titik gantung supaya tidak terlihat terpotong. Nilai negatif juga memperpanjang pita. */
 const VIEWBOX_TOP = -20;
 const SVG_VIEWBOX = `0 ${VIEWBOX_TOP} ${SVG_WIDTH} ${SVG_HEIGHT}`;
 
@@ -25,7 +26,7 @@ const MEET_Y = CARD_CENTER_Y + CLIP_HOLE_OFFSET_Y;
 const STRAP_REACH = 900;
 const STRAP_LERP = 0.35;
 /** Batas geser kartu dari posisi diam, dalam unit SVG. */
-const CARD_TRAVEL = 260;
+const CARD_TRAVEL = 340;
 
 export const STRAP_GEO: StrapGeometryConfig = {
   ...DEFAULT_STRAP_CONFIG,
@@ -34,11 +35,11 @@ export const STRAP_GEO: StrapGeometryConfig = {
   meetLocal: { x: CLIP_X, y: MEET_Y },
   chainLen: STRAP_REACH,
   slackFactor: 0.1,
-  width: 26,
+  width: 24,
 };
 
 const TAPE_TEXT = "SOFTWARE ENGINEER";
-const TAPE_TEXT_STEPS = [0.18, 0.42, 0.66];
+const TAPE_TEXT_STEPS = [0.14, 0.42, 0.70];
 
 /**
  * Tali + kartu digambar langsung di kolom hero (bukan fixed), jadi ikut halaman saat scroll
@@ -306,12 +307,12 @@ function Lanyard({
             {TAPE_TEXT_STEPS.map((offset) => (
               <text
                 key={`${side}-${offset}`}
-                fontSize="5.2"
+                fontSize="4.5"
                 fontWeight="700"
-                letterSpacing="0.6"
+                letterSpacing="0.45"
                 fill="#F7F6F2"
                 opacity="0.85"
-                dy="-2.6"
+                dy="-2.2"
                 dominantBaseline="middle"
               >
                 <textPath href={`#${pathIds[side]}`} startOffset={`${offset * 100}%`} textAnchor="middle">
@@ -340,20 +341,20 @@ function BadgeCardHolder() {
     <g>
       <defs>
         <clipPath id="badgeCardClip">
-          <rect x="-76" y="-12" width="152" height="258" rx="5" />
+          <rect x="-88" y="-13" width="176" height="304" rx="5" />
         </clipPath>
       </defs>
-      <rect x="-84" y="-60" width="168" height="312" rx="8" fill="#FFFFFF" stroke="#E5E3DC" strokeWidth="2" />
+      <rect x="-96" y="-61" width="192" height="365" rx="8" fill="#FFFFFF" stroke="#E5E3DC" strokeWidth="2" />
       <image
         href="/images/projects/foto.png"
-        x="-76"
-        y="-12"
-        width="152"
-        height="258"
+        x="-88"
+        y="-13"
+        width="176"
+        height="304"
         preserveAspectRatio="xMidYMid slice"
         clipPath="url(#badgeCardClip)"
       />
-      <ellipse cx="0" cy="-22" rx="19" ry="8" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1.2" />
+      <ellipse cx="0" cy="-22" rx="21" ry="9" fill="#F7F6F2" stroke="#E5E3DC" strokeWidth="1.2" />
     </g>
   );
 }

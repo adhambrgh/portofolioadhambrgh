@@ -2058,3 +2058,52 @@ Import trace for requested module:
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\server-development\0.pack.gz'
  ✓ Compiled in 2.7s (1294 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 3.1s (1294 modules)
+ ✓ Compiled in 638ms (1294 modules)
+ ✓ Compiled in 894ms (1294 modules)
+ ✓ Compiled in 971ms (1294 modules)
+ ✓ Compiled in 1273ms (1294 modules)
+ ✓ Compiled in 5.1s (1294 modules)
+ ✓ Compiled in 2.6s (1294 modules)
+ ✓ Compiled in 1556ms (1294 modules)
+ ✓ Compiled in 642ms (1294 modules)
+ ✓ Compiled in 622ms (1294 modules)
+ ✓ Compiled in 446ms (1294 modules)
+ ✓ Compiled in 508ms (1294 modules)
+ GET / 200 in 356ms
+ GET / 200 in 111ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 670ms (1283 modules)
+ GET /favicon-192x192.png 404 in 880ms
+ GET /favicon-16x16.png 404 in 877ms
+ ✓ Compiled in 629ms (1294 modules)
+ GET / 200 in 322ms
+ ✓ Compiled /_not-found in 411ms (1283 modules)
+ GET /favicon-16x16.png 404 in 547ms
+ GET /favicon-192x192.png 404 in 554ms
+ GET / 200 in 134ms
+ GET /favicon-192x192.png 404 in 50ms
+ GET /favicon-16x16.png 404 in 45ms
+ GET / 200 in 72ms
+ GET /favicon-192x192.png 404 in 60ms
+ GET /favicon-16x16.png 404 in 56ms
+ GET / 200 in 42ms
+ GET /favicon-192x192.png 404 in 46ms
+ GET /favicon-16x16.png 404 in 42ms
+ ✓ Compiled in 885ms (1297 modules)
+ GET / 200 in 353ms
+ GET /favicon-192x192.png 404 in 36ms
+ GET /favicon-16x16.png 404 in 34ms
+ ✓ Compiled in 558ms (1297 modules)
+ GET / 200 in 190ms
+ GET /favicon-192x192.png 404 in 69ms
+ GET /favicon-16x16.png 404 in 64ms
+ ✓ Compiled in 660ms (1294 modules)
+ ✓ Compiled in 443ms (1294 modules)
+ ✓ Compiled in 2.6s (1294 modules)
+ ✓ Compiled in 506ms (1294 modules)
+ ✓ Compiled in 433ms (1294 modules)
+ ✓ Compiled in 547ms (1294 modules)
+ ✓ Compiled in 405ms (1294 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\4.pack.gz_' -> 'C:\laragon\www\portofolio\.next\cache\webpack\client-development\4.pack.gz'
+ ✓ Compiled in 1021ms (1294 modules)

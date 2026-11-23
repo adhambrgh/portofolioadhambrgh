@@ -19,7 +19,7 @@ export function ImagePlaceholder({
   role,
   techStack,
   className,
-  aspectRatio = type === "portrait" || type === "nametag" ? "aspect-[3/4]" : "aspect-[4/3]",
+  aspectRatio = type === "portrait" ? "aspect-[3/4]" : type === "nametag" ? "aspect-[15/57]" : "aspect-[4/3]",
   ...props
 }: ImagePlaceholderProps) {
   const initials = name ? getInitials(name) : type === "portrait" ? "AB" : "··";

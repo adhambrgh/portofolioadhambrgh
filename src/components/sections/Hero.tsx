@@ -12,7 +12,7 @@ export function Hero() {
       className="min-h-screen container-wide grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-28 md:pt-32 pb-20 md:pb-32"
       aria-labelledby="hero-heading"
     >
-          <div className="relative z-10 flex flex-col justify-center lg:pr-8">
+          <div className="relative z-10 flex flex-col justify-start pt-8 lg:pt-16 lg:pr-8">
             <motion.p
               className="section-label"
               initial={{ opacity: 0, y: -20 }}
@@ -91,9 +91,10 @@ export function Hero() {
               </p>
             </motion.div>
 
-            {/* gambar terpotong tinggi sd. kartu, sisa tinggi kolom mentok di sini */}
-            <div className="h-[100svh] max-h-screen overflow-hidden">
-              <div className="max-w-md mx-auto lg:max-w-none pt-8 lg:pt-16">
+            {/* gambar terpotong tinggi sd. kartu; di lg diberi ruang lebih supaya kartu bisa besar.
+                overflow-visible: kartu yang ditarik keluar kolom tidak boleh terpotong */}
+            <div className="h-auto lg:h-[140svh] overflow-visible">
+              <div className="max-w-md mx-auto lg:max-w-lg pt-8 lg:-mt-20">
                 <ImagePlaceholder type="nametag" name="Adham Baarigh" role="Software Engineer" className="rounded-none" />
               </div>
             </div>
