@@ -32,8 +32,8 @@ Color palette:
 - Soft border: #E5E3DC
 
 Typography:
-- DM Sans for body text and navigation.
-- Instrument Serif for selected headlines.
+- Poppins for all text — body, navigation, and headlines.
+- One family only: hierarchy comes from size, weight, and tracking, not family change.
 - Use typography intentionally, not decoratively.
 
 Avoid:

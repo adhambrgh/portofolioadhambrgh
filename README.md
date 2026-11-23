@@ -7,7 +7,7 @@ Personal developer portfolio website built with Next.js 14, TypeScript, Tailwind
 This portfolio implements an **Editorial Minimalist** design system inspired by Swiss design principles:
 
 - **Colors**: Warm ivory background (#F7F6F2), Charcoal text (#20211F), Muted blue accent (#7886A8)
-- **Typography**: DM Sans (UI/body) + Instrument Serif (headlines)
+- **Typography**: Poppins (single family, all text)
 - **Spacing**: Fluid, clamp-based scale with generous whitespace
 - **Motion**: Restrained animations — entrance fade-in + hover only, respects `prefers-reduced-motion`
 
@@ -20,7 +20,7 @@ This portfolio implements an **Editorial Minimalist** design system inspired by 
 | Styling | Tailwind CSS v3 |
 | Animation | Framer Motion |
 | Icons | Lucide React |
-| Fonts | DM Sans, Instrument Serif (via next/font) |
+| Fonts | Poppins (via next/font) |
 | Deployment | Vercel |
 
 ## Project Structure

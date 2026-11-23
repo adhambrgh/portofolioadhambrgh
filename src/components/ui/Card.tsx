@@ -18,7 +18,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     };
 
     const hoverStyles = hover
-      ? "hover:border-border-hover hover:shadow-md transition-all duration-base ease-out hover-scale"
+      ? "hover:border-border-hover transition-colors duration-base ease-out"
       : "";
 
     return (
@@ -61,7 +61,7 @@ export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("px-6 py-4 border-t border-border bg-card-hover/50", className)}
+      className={cn("px-6 py-4 border-t border-border", className)}
       {...props}
     >
       {children}

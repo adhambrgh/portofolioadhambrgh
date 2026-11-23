@@ -208,8 +208,8 @@ Menampilkan:
 | Border | #E5E3DC |
 
 ### Typography
-- Sans-serif untuk teks utama.
-- Serif sebagai aksen heading.
+- Poppins untuk seluruh teks, termasuk heading.
+- Hierarki dibangun lewat ukuran dan ketebalan, bukan ganti keluarga font.
 - Ukuran dan ketebalan font harus konsisten.
 
 ### Animation

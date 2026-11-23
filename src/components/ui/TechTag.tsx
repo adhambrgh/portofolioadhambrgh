@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface TechTagProps {
   children: ReactNode;
-  variant?: "default" | "outline" | "subtle";
+  variant?: "default" | "outline" | "subtle" | "plain";
   size?: "sm" | "md";
   className?: string;
 }
@@ -15,6 +15,7 @@ export function TechTag({ children, variant = "default", size = "sm", className 
     default: "bg-accent-light text-accent",
     outline: "border border-border text-secondary hover:border-border-hover hover:text-foreground",
     subtle: "bg-muted/30 text-secondary",
+    plain: "text-secondary",
   };
 
   const sizes = {
@@ -22,12 +23,15 @@ export function TechTag({ children, variant = "default", size = "sm", className 
     md: "px-4 py-1.5 text-sm",
   };
 
+  // varian plain tampil sebagai teks berderet, jadi padding kotak dilewati
+  const boxed = variant !== "plain";
+
   return (
     <span
       className={cn(
         "inline-flex items-center font-medium",
         variants[variant],
-        sizes[size],
+        boxed ? sizes[size] : "text-xs",
         className
       )}
     >
@@ -38,9 +42,11 @@ export function TechTag({ children, variant = "default", size = "sm", className 
 
 interface TechTagListProps {
   tags: string[];
-  variant?: "default" | "outline" | "subtle";
+  variant?: "default" | "outline" | "subtle" | "plain";
   size?: "sm" | "md";
   maxVisible?: number;
+  /** Baris teks berpemisah titik, bukan kotak-kotak. */
+  plain?: boolean;
   className?: string;
 }
 
@@ -49,10 +55,29 @@ export function TechTagList({
   variant = "default",
   size = "sm",
   maxVisible = 6,
+  plain = false,
   className,
 }: TechTagListProps) {
   const visibleTags = tags.slice(0, maxVisible);
   const remainingCount = tags.length - maxVisible;
+  const items = remainingCount > 0 ? [...visibleTags, `+${remainingCount}`] : visibleTags;
+
+  if (plain) {
+    return (
+      <p className={cn("flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-xs text-secondary", className)}>
+        {items.map((tag, i) => (
+          <span key={tag} className="inline-flex items-center gap-2">
+            {i > 0 && (
+              <span aria-hidden="true" className="text-border">
+                ·
+              </span>
+            )}
+            {tag}
+          </span>
+        ))}
+      </p>
+    );
+  }
 
   return (
     <div className={cn("flex flex-wrap gap-2", className)} aria-label="Technology stack">

@@ -55,8 +55,7 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-export const techTags: TechTag[] = [
-  { name: "HTML5", category: "frontend" },
+export const techTags: TechTag[] = [  { name: "HTML5", category: "frontend" },
   { name: "CSS3", category: "frontend" },
   { name: "JavaScript", category: "frontend" },
   { name: "TypeScript", category: "frontend" },
@@ -86,3 +85,13 @@ export const getTechTagCategory = (name: string): TechTag["category"] | undefine
   const tag = techTags.find((t) => t.name.toLowerCase() === name.toLowerCase());
   return tag?.category;
 };
+
+/** Bar About. Nilai = jumlah teknologi per kategori, diskalakan ke 100 atas kategori terbanyak. */
+const maxSkillCount = Math.max(...skillCategories.map((c) => c.skills.length));
+/** Empat nada muted blue: satu keluarga warna, dari gelap ke terang. */
+const SKILL_BAR_COLORS = ["#5E6D8E", "#7886A8", "#9AA5BE", "#C3CAD9"];
+export const skillBars = skillCategories.map((c, i) => ({
+  label: c.category,
+  value: Math.round((c.skills.length / maxSkillCount) * 100),
+  color: SKILL_BAR_COLORS[i % SKILL_BAR_COLORS.length],
+}));
