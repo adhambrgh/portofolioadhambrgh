@@ -1,6 +1,3 @@
-import { Navigation } from "@/components/layout/Navigation";
-import { Footer } from "@/components/layout/Footer";
-import { SkipLink } from "@/components/layout/SkipLink";
 import { Hero } from "@/components/sections/Hero";
 import { SelectedWorks } from "@/components/sections/SelectedWorks";
 import { About } from "@/components/sections/About";
@@ -10,17 +7,11 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <>
-      <SkipLink />
-      <Navigation />
-      {/* stacking root: LanyardRig fixed harus di atas hero, di bawah navbar */}
-      <main id="main-content" className="relative z-40 min-h-screen" role="main">
-        <Hero />
-        <SelectedWorks />
-        <About />
-        <Approach />
-        <Contact />
-      </main>
-      <Footer />
+      <Hero />
+      <SelectedWorks />
+      <About />
+      <Approach />
+      <Contact />
     </>
   );
 }

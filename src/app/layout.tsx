@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
+import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
+import { SkipLink } from "@/components/layout/SkipLink";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -84,10 +87,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        {children}
+        <SkipLink />
+        <Navigation />
+        <main id="main-content" className="relative z-40 min-h-screen" role="main">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

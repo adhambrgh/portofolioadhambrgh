@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card, CardContent, CardFooter } from "@/components/ui/Card";
 import { TechTagList } from "@/components/ui/TechTag";
 import { formatProjectCategory } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+import type { Project } from "@/types";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,8 +27,8 @@ const itemVariants = {
   },
 };
 
-function ProjectCard({ index, featured }: { index: number; featured: boolean }) {
-  const project = projects[index];
+function ProjectCard({ project, featured }: { project: Project; featured: boolean }) {
+  const index = project.order - 1;
   const no = String(index + 1).padStart(2, "0");
 
   return (
@@ -132,14 +133,26 @@ export function SelectedWorks() {
           aria-label="Featured projects"
         >
           <div className="md:col-span-2 lg:col-span-7">
-            <ProjectCard index={0} featured />
+            <ProjectCard project={featuredProjects[0]} featured />
           </div>
 
           <div className="flex flex-col gap-6 md:gap-8 lg:col-span-5">
-            <ProjectCard index={1} featured={false} />
-            <ProjectCard index={2} featured={false} />
+            <ProjectCard project={featuredProjects[1]} featured={false} />
+            <ProjectCard project={featuredProjects[2]} featured={false} />
           </div>
         </motion.div>
+
+        <div className="mt-12 flex justify-end">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 font-sans text-sm font-medium text-foreground hover:text-accent transition-colors focus-ring"
+          >
+            View all projects
+            <span aria-hidden="true" className="transition-transform duration-base group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </div>
       </div>
     </section>
   );

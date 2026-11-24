@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "WORK", href: "#selected-works" },
-  { label: "ABOUT", href: "#about" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "WORK", href: "/#selected-works" },
+  { label: "ABOUT", href: "/#about" },
+  { label: "CONTACT", href: "/#contact" },
 ];
 
 export function Navigation() {

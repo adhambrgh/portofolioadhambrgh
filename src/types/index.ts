@@ -12,10 +12,8 @@ export interface Project {
   id: string;
   name: string;
   description: string;
-  category: "web" | "mobile" | "fullstack";
+  category: "web" | "mobile" | "fullstack" | "experiment";
   techStack: string[];
-  thumbnail: string;
-  thumbnailAlt: string;
   repoUrl: string;
   liveUrl?: string;
   featured: boolean;
