@@ -145,12 +145,9 @@ export function SelectedWorks() {
         <div className="mt-12 flex justify-end">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 font-sans text-sm font-medium text-foreground hover:text-accent transition-colors focus-ring"
+            className="inline-flex px-5 py-2.5 font-sans text-sm font-medium text-foreground border border-border hover:bg-card-hover hover:border-border-hover hover:text-accent transition-colors duration-base ease-out focus-ring"
           >
             View all projects
-            <span aria-hidden="true" className="transition-transform duration-base group-hover:translate-x-1">
-              →
-            </span>
           </Link>
         </div>
       </div>

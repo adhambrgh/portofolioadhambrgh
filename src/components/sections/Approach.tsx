@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Tooltip } from "@/components/ui/Tooltip";
 
 const approachSteps = [
   {
@@ -119,20 +120,40 @@ export function Approach() {
                 {step.number}
               </span>
 
-              <span className="mt-4 flex size-16 items-center justify-center rounded-full border border-border bg-card transition-colors duration-base group-hover:border-accent">
-                <StepIcon
-                  name={step.icon}
-                  className="size-7 text-foreground transition-colors duration-base group-hover:text-accent"
-                />
-              </span>
+              <Tooltip
+                content={
+                  <>
+                    <strong className="block mb-1">{step.title}</strong>
+                    <span className="text-sm opacity-90">{step.description}</span>
+                  </>
+                }
+                position="top"
+                delay={150}
+              >
+                <motion.span
+                  className="mt-4 flex size-16 items-center justify-center rounded-full border border-border bg-card transition-all duration-base group-hover:border-accent hover:scale-[1.03] hover:shadow-lg"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <StepIcon
+                    name={step.icon}
+                    className="size-7 text-foreground transition-colors duration-base group-hover:text-accent"
+                  />
+                </motion.span>
+              </Tooltip>
 
               <h3 className="mt-5 font-sans text-xl font-semibold text-foreground md:text-2xl">
                 {step.title}
               </h3>
 
-              <p className="mt-3 max-w-[26ch] text-base leading-relaxed text-secondary">
+              <motion.p
+                className="mt-3 max-w-[26ch] text-base leading-relaxed text-secondary"
+                whileHover={{ color: "#20211F", fontWeight: 500 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
                 {step.description}
-              </p>
+              </motion.p>
 
               {/* penghubung horizontal: hanya di lg, sejajar pusat lingkaran */}
               {index < approachSteps.length - 1 && (
